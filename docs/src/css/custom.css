@@ -1,0 +1,214 @@
+:root {
+  --ifm-color-primary: #168ab6;
+  --ifm-color-primary-dark: #147da5;
+  --ifm-color-primary-darker: #13769c;
+  --ifm-color-primary-darkest: #0f607f;
+  --ifm-color-primary-light: #2498c3;
+  --ifm-color-primary-lighter: #32a0c8;
+  --ifm-color-primary-lightest: #58b1d2;
+  --ifm-font-size-base: 16px;
+  --ifm-heading-font-family: Georgia, "Times New Roman", serif;
+  --ifm-code-font-size: 88%;
+  --ifm-navbar-height: 4.25rem;
+  --ifm-global-radius: 8px;
+  --docusaurus-highlighted-code-line-bg: rgb(255 255 255 / 7%);
+}
+
+[data-theme="dark"] {
+  --ifm-color-primary: #78c5e2;
+  --ifm-color-primary-dark: #5cb8dc;
+  --ifm-color-primary-darker: #4bb0d8;
+  --ifm-color-primary-darkest: #258db8;
+  --ifm-color-primary-light: #94d2e8;
+  --ifm-color-primary-lighter: #a5daec;
+  --ifm-color-primary-lightest: #ccebf4;
+  --ifm-background-color: #090a0b;
+  --ifm-background-surface-color: #101213;
+  --ifm-pre-background: #0e1011;
+  --ifm-pre-color: #d0d2d0;
+  --ifm-color-content: #c7c9c7;
+  --ifm-color-content-secondary: #969b9c;
+  --ifm-heading-color: #f0efea;
+  --ifm-navbar-background-color: rgb(9 10 11 / 94%);
+  --ifm-footer-background-color: #0d0f10;
+  --ifm-toc-border-color: #292d2e;
+  --ifm-hr-border-color: #292d2e;
+  --ifm-menu-color: #a9adad;
+  --ifm-menu-color-active: #f4f3ee;
+  --docusaurus-highlighted-code-line-bg: rgb(255 255 255 / 7%);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 0.94rem;
+}
+
+.navbar {
+  border-bottom: 1px solid #242728;
+  box-shadow: none;
+  backdrop-filter: blur(14px);
+}
+
+.navbar__brand {
+  gap: 0.65rem;
+}
+
+.navbar__title {
+  color: #f0efea;
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.navbar__link {
+  color: #b4b8b8;
+  font-size: 0.83rem;
+  transition: color 150ms ease;
+}
+
+.navbar__link:hover,
+.navbar__link--active {
+  color: #f5f4f0;
+}
+
+.navbar__item a[href*="npmjs.com"] {
+  padding: 0.48rem 0.88rem;
+  border: 1px solid #363a3b;
+  border-radius: 999px;
+  color: #eeeeeb;
+}
+
+.navbar__item a[href*="npmjs.com"]:hover {
+  border-color: #777d7e;
+  background: #171a1b;
+}
+
+.footer {
+  border-top: 1px solid #282c2d;
+}
+
+.footer__title {
+  color: #e8e7e2;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.footer__link-item {
+  color: #9ca1a1;
+  font-size: 0.82rem;
+}
+
+.footer__copyright {
+  color: #777d7e;
+  font-size: 0.75rem;
+}
+
+.theme-doc-markdown h1,
+.theme-doc-markdown h2,
+.theme-doc-markdown h3,
+.theme-doc-markdown h4 {
+  letter-spacing: -0.035em;
+}
+
+.theme-doc-markdown h1 {
+  font-size: clamp(2.4rem, 5vw, 3.25rem);
+}
+
+.theme-doc-markdown h2 {
+  margin-top: 2.8rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #292d2e;
+  font-size: 1.9rem;
+}
+
+.theme-doc-markdown h3 {
+  margin-top: 2rem;
+  font-size: 1.35rem;
+}
+
+.theme-doc-markdown p,
+.theme-doc-markdown li {
+  line-height: 1.8;
+}
+
+.theme-doc-markdown a {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.theme-doc-markdown table {
+  display: block;
+  overflow-x: auto;
+  border: 1px solid #292d2e;
+  border-radius: 8px;
+}
+
+.theme-doc-markdown th {
+  background: #141718;
+  color: #ecebe6;
+}
+
+.theme-doc-markdown tr:nth-child(2n) {
+  background: #101213;
+}
+
+.theme-doc-markdown :not(pre) > code {
+  border: 1px solid #303536;
+  background: #141718;
+}
+
+.theme-doc-markdown pre {
+  border: 1px solid #292d2e;
+  border-radius: 9px;
+  background: #0e1011;
+}
+
+.theme-code-block pre {
+  background: #0e1011 !important;
+}
+
+.menu__link {
+  border-radius: 6px;
+  font-size: 0.83rem;
+}
+
+.menu__link:hover {
+  background: #171a1b;
+}
+
+.menu__link--active:not(.menu__link--sublist) {
+  background: #141a1c;
+  color: #9cd5e9;
+}
+
+.pagination-nav__link {
+  border-color: #303536;
+  border-radius: 8px;
+  background: #0e1011;
+  transition:
+    border-color 150ms ease,
+    background 150ms ease;
+}
+
+.pagination-nav__link:hover {
+  border-color: #545b5d;
+  background: #141718;
+}
+
+.pagination-nav__sublabel {
+  color: #878d8e;
+}
+
+.pagination-nav__label {
+  color: #e7e6e1;
+}
+
+@media screen and (max-width: 996px) {
+  .navbar__item a[href*="npmjs.com"] {
+    border: 0;
+    padding: 0.5rem 0;
+  }
+}

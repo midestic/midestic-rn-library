@@ -1,0 +1,125 @@
+---
+sidebar_position: 4
+title: Overlays
+---
+
+# Overlays
+
+## Modal
+
+Centered dialog.
+
+```tsx
+<Modal visible={visible} onClose={() => setVisible(false)} title="Delete account">
+  <View className="gap-[16px]">
+    <ThemedText>This action cannot be undone.</ThemedText>
+    <Button title="Delete" variant="danger" fullWidth onPress={remove} />
+  </View>
+</Modal>
+```
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `visible` | `boolean` | - | Show/hide |
+| `onClose` | `() => void` | - | Backdrop press, close button and Android back |
+| `children` | `ReactNode` | - | Dialog body |
+| `title` | `string` | - | Header text |
+| `showCloseButton` | `boolean` | `true` | Renders the header close button |
+| `closeOnBackdropPress` | `boolean` | `true` | Dismiss on backdrop press |
+| `className` | `string` | `""` | Classes on the sheet |
+| `contentClassName` | `string` | `""` | Classes on the content row |
+
+## Drawer
+
+Bottom sheet version of `Modal` with the same prop set.
+
+```tsx
+<Drawer visible={visible} onClose={() => setVisible(false)} title="Filters">
+  <View className="gap-[8px] px-[16px] pb-[24px]">
+    <ThemedText>Only rides with AC</ThemedText>
+  </View>
+</Drawer>
+```
+
+## DraggableDrawer
+
+Multi step, gesture driven bottom sheet. Steps are React components that receive step helpers.
+
+```tsx
+const StepOne = ({ nextStep, onClose }: DrawerStepProps) => (
+  <View className="gap-[16px] px-[20px] pb-[24px]">
+    <ThemedTitle>Cancel this trip?</ThemedTitle>
+    <Button title="Yes, cancel" variant="danger" fullWidth onPress={onClose} />
+    <Button title="Next" variant="outline" fullWidth onPress={nextStep} />
+  </View>
+);
+
+<DraggableDrawer
+  visible={visible}
+  onClose={() => setVisible(false)}
+  title="Cancel trip"
+  steps={[StepOne, StepTwo]}
+  initialMaxHeight="70%"
+/>
+```
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `visible` | `boolean` | - | Show/hide |
+| `onClose` | `() => void` | - | Backdrop/close button handler |
+| `steps` | `ComponentType<DrawerStepProps>[]` | - | One component per step |
+| `title` | `string` | - | Header text |
+| `showCloseButton` | `boolean` | `true` | Header close button |
+| `closeOnBackdropPress` | `boolean` | `true` | Tap outside to close |
+| `peekHeight` | `ResponsiveHeight` | `91` | Height when collapsed |
+| `minHeight` / `maxHeight` | `ResponsiveHeight` | - / `100%` | Bounds for the drag |
+| `initialMaxHeight` | `ResponsiveHeight` | `62%` | Opening height |
+| `initialStep` / `step` | `number` | `0` | Step on open / controlled step |
+| `onStepChange` | `(step: number) => void` | - | Step change callback |
+| `stepProps` | `Record<string, any>` | `{}` | Extra props passed to every step |
+| `overlayContent` | `ReactNode` \| `(props: DrawerStepProps) => ReactNode` | - | Content behind the sheet |
+
+`ResponsiveHeight` is `number` | `` `${number}%` `` | `` `${number}vh` ``.
+
+### DrawerStepProps
+
+Every step receives `currentStep`, `nextStep()`, `previousStep()`, `goToStep(index)`, `onClose()` and `setDrawerHeight(height | null)`, plus anything passed through `stepProps`.
+
+## Calendar
+
+Date picker dialog.
+
+```tsx
+<Calendar
+  visible={visible}
+  value={date}
+  onClose={() => setVisible(false)}
+  onApply={(next) => {
+    setDate(next);
+    setVisible(false);
+  }}
+/>
+```
+
+| Prop | Type | Description |
+| --- | --- | --- |
+| `visible` | `boolean` | Show/hide |
+| `value` | `Date \| null` | Selected day |
+| `onClose` | `() => void` | Cancel handler |
+| `onApply` | `(date: Date \| null) => void` | Confirm handler |
+
+## CelebrationShower
+
+Animated confetti overlay for success screens.
+
+```tsx
+<View className="flex-1 items-center justify-center">
+  <ThemedTitle>Ride completed!</ThemedTitle>
+  <CelebrationShower count={40} duration={2500} />
+</View>
+```
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `count` | `number` | `35` | Number of particles |
+| `duration` | `number` | `2500` | Animation length in ms |

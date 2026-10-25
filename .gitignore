@@ -1,0 +1,15 @@
+node_modules/
+dist/
+coverage/
+*.log
+.DS_Store
+.expo/
+example/.expo/
+example/dist*/
+example/storybook-static/
+docs/build/
+docs/.docusaurus/
+storybook-static/
+*.tgz
+.vscode/
+.idea/

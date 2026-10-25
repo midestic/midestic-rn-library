@@ -1,0 +1,44 @@
+---
+sidebar_position: 8
+title: Deploy the documentation site
+---
+
+# Deploy the documentation site
+
+Docusaurus builds the documentation into static files. Build the site from the repository root:
+
+```bash
+npm run docs:build
+```
+
+The generated website is in `docs/build/`. The repository includes a Netlify configuration, so connecting it to Netlify automatically builds and deploys the documentation site.
+
+## Netlify
+
+Create a new site from the repository. The root `netlify.toml` already configures these settings:
+
+| Setting           | Value           |
+| ----------------- | --------------- |
+| Base directory    | `docs`          |
+| Build command     | `npm run build` |
+| Publish directory | `build`         |
+| Node version      | `20` or newer   |
+
+Netlify provides the production site URL to the build as the `URL` environment variable. Docusaurus uses it for canonical links and sitemap generation; no manual URL change is required after Netlify assigns a domain.
+
+## Vercel
+
+Create a project from the repository and configure:
+
+| Setting          | Value           |
+| ---------------- | --------------- |
+| Root directory   | `docs`          |
+| Build command    | `npm run build` |
+| Output directory | `build`         |
+| Node version     | `20` or newer   |
+
+## Set the public site URL
+
+Once you know the final public URL, update the `url` field in `docs/docusaurus.config.ts` to that origin (for example, `https://docs.example.com`). Keep `baseUrl` set to `/` when the site is hosted at a domain or subdomain root. If it is hosted under a path, set `baseUrl` to that path, including its leading and trailing slashes.
+
+Build again after changing the URL and base path, then deploy the newly generated `docs/build/` directory.

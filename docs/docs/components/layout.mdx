@@ -1,0 +1,100 @@
+---
+sidebar_position: 5
+title: Layout
+---
+
+# Layout
+
+## ThemedView
+
+`View` with `className` support and an optional safe-area wrapper.
+
+```tsx
+<ThemedView safe className="flex-1 justify-center px-[24px]">
+  {children}
+</ThemedView>
+```
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `safe` | `boolean` | `false` | Apply safe-area padding (top + bottom) |
+| `className` | `string` | `""` | Extra classes |
+
+## ThemedText / ThemedTitle / MyText
+
+Text primitives that read the theme colours.
+
+```tsx
+<ThemedTitle>Page title</ThemedTitle>
+<ThemedText className="text-text-light">Supporting copy</ThemedText>
+<MyText className="font-[600]">Emphasised label</MyText>
+```
+
+| Component | Extends | Extra props |
+| --- | --- | --- |
+| `ThemedText` | `TextProps` | `className` |
+| `ThemedTitle` | `TextProps` | `className` |
+| `MyText` | `TextProps` | `className`, required `children` |
+
+## ThemedScrollView
+
+Scroll container with optional safe areas and pull to refresh.
+
+```tsx
+<ThemedScrollView
+  safeTop
+  refreshing={refreshing}
+  onRefresh={async () => {
+    await reload();
+  }}
+  className="flex-1"
+  contentContainerClassName="gap-[12px] p-[16px]"
+>
+  {rows}
+</ThemedScrollView>
+```
+
+| Prop | Type | Description |
+| --- | --- | --- |
+| `safe` / `safeTop` / `safeBottom` | `boolean` | Safe-area padding on the container |
+| `refreshing` | `boolean` | Controlled pull-to-refresh spinner |
+| `onRefresh` | `() => Promise<unknown> \| void` | Called on pull to refresh |
+| `className` | `string` | Classes on the scroll view |
+| `contentContainerClassName` | `string` | Classes on the content container |
+
+:::tip
+`useAppRefresh` (exported from the package) returns `{ isRefreshing, refresh }` so you can wire pull-to-refresh in one line:
+
+```tsx
+const { isRefreshing, refresh } = useAppRefresh(() => api.reload());
+
+<ThemedScrollView refreshing={isRefreshing} onRefresh={refresh}>
+  {rows}
+</ThemedScrollView>
+```
+
+:::
+
+## SafeTopView
+
+`View` padded by the top safe-area inset.
+
+```tsx
+<SafeTopView className="flex-1 bg-background-light">
+  <HeaderBack title="Trip details" onBackPress={navigation.goBack} />
+</SafeTopView>
+```
+
+## HeaderBack
+
+Top bar with a back arrow and centered title.
+
+```tsx
+<HeaderBack title="Trip details" onBackPress={() => navigation.goBack()} className="h-[56px]" />
+```
+
+| Prop | Type | Description |
+| --- | --- | --- |
+| `title` | `string` | Centered header text |
+| `onBackPress` | `() => void` | Called when the arrow is pressed |
+| `className` | `string` | Extra classes |

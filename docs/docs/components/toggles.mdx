@@ -1,0 +1,59 @@
+---
+sidebar_position: 3
+title: Toggles
+---
+
+# Toggles
+
+## AppSwitch
+
+Native switch that exposes the correct accessibility role and state.
+
+```tsx
+const [on, setOn] = useState(true);
+
+<View className="flex-row items-center justify-between">
+  <MyText>Notifications</MyText>
+  <AppSwitch value={on} onValueChange={setOn} />
+</View>
+```
+
+| Prop | Type | Description |
+| --- | --- | --- |
+| `value` | `boolean` | Controlled on/off state |
+| `onValueChange` | `(value: boolean) => void` | Change handler |
+| `disabled` | `boolean` | Disables the switch |
+| `className` | `string` | Extra classes |
+
+## AppCheckbox
+
+Custom checkbox with `checkbox` role, checked state and an accessibility label.
+
+```tsx
+<AppCheckbox value={accepted} onValueChange={setAccepted} accessibilityLabel="Accept terms" />
+```
+
+| Prop | Type | Description |
+| --- | --- | --- |
+| `value` | `boolean` | Checked state |
+| `onValueChange` | `(value: boolean) => void` | Change handler |
+| `size` | `number` | Box size (default `24`) |
+| `disabled` | `boolean` | Disables the checkbox |
+| `accessibilityLabel` | `string` | Announced by screen readers |
+
+## StatusSwitch
+
+Online/offline driver toggle with labels on both sides of the knob.
+
+```tsx
+<StatusSwitch value={online} onValueChange={setOnline} onlineLabel="You are online" offlineLabel="You are offline" />
+<StatusSwitch value={online} onValueChange={setOnline} knobImage={require("./car.png")} />
+```
+
+| Prop | Type | Description |
+| --- | --- | --- |
+| `value` | `boolean` | `true` = online |
+| `onValueChange` | `(value: boolean) => void` | Change handler |
+| `onlineLabel` / `offlineLabel` | `string` | Text shown while in each state |
+| `knobImage` | `ImageSourcePropType` | Image inside the sliding knob (plain circle when omitted) |
+| `disabled` | `boolean` | Disables the toggle |

@@ -1,0 +1,60 @@
+---
+sidebar_position: 7
+title: Development
+---
+
+# Development
+
+Repo scripts (run from the repository root):
+
+| Command              | What it does                                                |
+| -------------------- | ----------------------------------------------------------- |
+| `npm run typecheck`  | `tsc -p tsconfig.json --noEmit` over `src/`, `test/`        |
+| `npm run lint`       | ESLint (flat config) over the whole repo                    |
+| `npm test`           | Jest test suites for buttons, inputs, toggles, and overlays |
+| `npm run build`      | Emits `.d.ts` files into `dist/types`                       |
+| `npm run format`     | Prettier write                                              |
+| `npm pack --dry-run` | Shows exactly which files would be published                |
+| `npm run storybook`  | Starts the example app with Storybook                       |
+| `npm run docs:start` | Docusaurus dev server                                       |
+| `npm run docs:build` | Production docs build                                       |
+
+## Layout
+
+```
+src/
+  components/ui/   25 components
+  icons/           SVG icon set
+  lib/             cn(), useAppRefresh()
+  constants/       Colors
+  index.ts         public barrel
+tailwind/preset.js shareable Tailwind preset
+test/              jest suites
+example/           Expo app + Storybook host
+docs/              this Docusaurus site
+```
+
+## Publishing checklist
+
+1. `npm run typecheck && npm run lint && npm test`
+2. `npm run build` (refreshes `dist/types`)
+3. `npm pack --dry-run` - confirm `src/`, `dist/`, `tailwind/`, `README.md` are included
+4. Bump the version, then `npm publish --access public`
+
+`prepublishOnly` runs typecheck, tests and build automatically.
+
+## Documentation site
+
+Run the documentation locally from the repository root:
+
+```bash
+npm run docs:start
+```
+
+Docusaurus serves the site at `http://localhost:3000` by default and reloads when documentation files change. To verify a production build:
+
+```bash
+npm run docs:build
+```
+
+See [Deployment](./deployment.mdx) to publish the generated site.

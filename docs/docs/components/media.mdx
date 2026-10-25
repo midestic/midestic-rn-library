@@ -1,0 +1,27 @@
+---
+sidebar_position: 6
+title: Media
+---
+
+# Media
+
+## AppImage
+
+`Image` with `className` support, `contentFit` mapping and a `source` that accepts either a number (require) or a uri object.
+
+```tsx
+<AppImage source={require("./avatar.png")} className="h-[64px] w-[64px] rounded-[32px]" contentFit="cover" />
+
+<AppImage
+  source={{ uri: "https://picsum.photos/240/240" }}
+  className="h-[160px] w-[160px] rounded-[16px]"
+  contentFit="cover"
+/>
+```
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `source` | `ImageProps["source"] \| number` | - | Local require or remote uri |
+| `contentFit` | `cover` \| `contain` \| `fill` \| `none` \| `scale-down` | `contain` | Maps to `resizeMode` |
+| `className` | `string` | `""` | Size, radius, ... |
+| ...rest | `ImageProps` | - | Everything else (`onError`, `testID`, ...) |

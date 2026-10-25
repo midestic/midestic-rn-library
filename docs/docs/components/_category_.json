@@ -1,0 +1,10 @@
+{
+  "label": "Components",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "slug": "/components",
+    "title": "Components",
+    "description": "Every component shipped with midestic-rn-library."
+  }
+}

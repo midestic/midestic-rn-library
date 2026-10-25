@@ -1,0 +1,122 @@
+---
+sidebar_position: 2
+title: Installation
+---
+
+# Installation
+
+The library requires a React Native app using Expo or Metro and NativeWind v4 for its `className` styles.
+
+## Install the packages
+
+```bash
+npm install midestic-rn-library
+```
+
+## Peer dependencies
+
+```bash
+npm install nativewind tailwindcss react-native-svg react-native-safe-area-context \
+  react-native-gesture-handler react-native-reanimated
+```
+
+| Package                          | Required for                                         |
+| -------------------------------- | ---------------------------------------------------- |
+| `nativewind` + `tailwindcss`     | every component's `className`                        |
+| `react-native-svg`               | the icon set                                         |
+| `react-native-safe-area-context` | `SafeTopView`, `HeaderBack`, drawer/sheet safe areas |
+| `react-native-gesture-handler`   | `DraggableDrawer`                                    |
+| `react-native-reanimated`        | `DraggableDrawer` animations                         |
+
+For Expo apps, use Expo's installer to select native dependencies compatible with your SDK:
+
+```bash
+npx expo install nativewind tailwindcss react-native-svg react-native-safe-area-context \
+  react-native-gesture-handler react-native-reanimated
+```
+
+## Why the package ships TypeScript source
+
+NativeWind v4 only converts `className` props when **your app's Babel config** compiles the file (it sets `jsxImportSource: "nativewind"`). The library therefore exposes its source as the package entry point and only ships generated `.d.ts` files in `dist/types`. Metro compiles `node_modules/midestic-rn-library/src` exactly like your own screens, so classes work without any extra NativeWind config.
+
+## Babel
+
+```js
+// babel.config.js
+module.exports = function (api) {
+  api.cache(true);
+  return {
+    presets: [["babel-preset-expo", { jsxImportSource: "nativewind" }], "nativewind/babel"],
+  };
+};
+```
+
+## Tailwind
+
+```js
+// tailwind.config.js
+module.exports = {
+  presets: [require("nativewind/preset"), require("midestic-rn-library/tailwind-preset")],
+  content: [
+    "./App.tsx",
+    "./src/**/*.{js,jsx,ts,tsx}",
+    // required - the library's classes must be scanned
+    "./node_modules/midestic-rn-library/src/**/*.{js,jsx,ts,tsx}",
+  ],
+  theme: { extend: {} },
+  plugins: [],
+};
+```
+
+:::tip
+If you skip the `content` glob for `node_modules/midestic-rn-library/src`, every class inside the library is dropped from the generated stylesheet and components render unstyled.
+:::
+
+## Metro
+
+Wrap the Expo Metro config with NativeWind and point it at the global stylesheet:
+
+```js
+// metro.config.js
+const { getDefaultConfig } = require("expo/metro-config");
+const { withNativeWind } = require("nativewind/metro");
+
+const config = getDefaultConfig(__dirname);
+module.exports = withNativeWind(config, { input: "./global.css" });
+```
+
+## Global CSS
+
+```ts
+// index.ts
+import "./global.css";
+```
+
+```css
+/* global.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+For gesture-driven components such as `DraggableDrawer`, wrap the application root in `GestureHandlerRootView`:
+
+```tsx
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+
+export default function App() {
+  return <GestureHandlerRootView style={{ flex: 1 }}>{/* Your app screens */}</GestureHandlerRootView>;
+}
+```
+
+## Verify the install
+
+```tsx
+import { Button } from "midestic-rn-library";
+
+export default function Demo() {
+  return <Button title="It works" onPress={() => {}} />;
+}
+```
+
+The button renders pill shaped with the `primary` background colour. If it is a grey rectangle, the Tailwind `content` glob above is missing.

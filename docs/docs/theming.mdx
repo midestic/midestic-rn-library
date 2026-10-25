@@ -1,0 +1,86 @@
+---
+sidebar_position: 3
+title: Theming
+---
+
+# Theming
+
+Everything in the library is styled with Tailwind classes, so theming means editing your own `tailwind.config.js`.
+
+## Design tokens
+
+The package ships a preset (`midestic-rn-library/tailwind-preset`) that already contains the design system colours:
+
+| Token | Tailwind class | Value |
+| --- | --- | --- |
+| Primary | `text-primary` / `bg-primary` | `#3195C9` |
+| Warning | `text-warning` / `bg-warning` | `#D53838` |
+| Call | `bg-call` | `#16A34A` |
+| Message | `bg-message` | `#2563EB` |
+| Success | `text-success` | `#11A75C` |
+| Title | `text-title-light` / `text-title-dark` | `#121212` / `#FFFFFF` |
+| Text | `text-text-light` / `text-text-dark` | `#625F72` / `#D4D4D4` |
+| Background | `bg-background-light` / `bg-background-dark` | `#FFFFFF` / `#252231` |
+| UI | `bg-ui-light` / `bg-ui-dark` | `#D6D5E1` / `#2F2B3D` |
+| Font | `font-sans` | `System` |
+
+```tsx
+<ThemedTitle className="text-title-light">Page title</ThemedTitle>
+<ThemedText className="text-text-light">Supporting copy</ThemedText>
+<Text className="text-warning">Enter a valid email address</Text>
+```
+
+## Overriding a token
+
+```js
+// tailwind.config.js
+module.exports = {
+  presets: [require("nativewind/preset"), require("midestic-rn-library/tailwind-preset")],
+  content: ["./App.tsx", "./src/**/*.{js,jsx,ts,tsx}", "./node_modules/midestic-rn-library/src/**/*.{js,jsx,ts,tsx}"],
+  theme: {
+    extend: {
+      colors: {
+        primary: "#7C3AED", // every bg-primary changes at once
+        warning: "#DC2626",
+      },
+    },
+  },
+  plugins: [],
+};
+```
+
+## Restyling a single component
+
+Every component forwards `className` (and where it makes sense `textClassName`, `inputClassName`, `contentClassName`), so one-off changes never need a wrapper:
+
+```tsx
+<Button title="Ghost" variant="ghost" className="rounded-[24px] border border-primary" />
+<Input label="Search" className="mt-[8px]" />
+<Modal visible={visible} onClose={close} className="rounded-[24px]" contentClassName="p-[8px]">
+  ...
+</Modal>
+```
+
+## Dark mode
+
+Components use the light tokens directly. For dark mode, pass a `dark:` variant from your screen:
+
+```tsx
+<ThemedView className="bg-background-light dark:bg-background-dark flex-1">
+  <ThemedTitle className="text-title-light dark:text-title-dark">Trips</ThemedTitle>
+</ThemedView>
+```
+
+## Fonts
+
+The preset maps `font-sans` to the platform `System` font. Point it at your brand font to restyle every label in the library at once:
+
+```js
+theme: {
+  extend: {
+    fontFamily: {
+      sans: ["Inter_600SemiBold", "System"],
+    },
+  },
+},
+```

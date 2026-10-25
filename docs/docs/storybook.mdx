@@ -1,0 +1,57 @@
+---
+sidebar_position: 6
+title: Storybook
+---
+
+# Storybook
+
+The `example/` app is an Expo project that doubles as the Storybook host for the library.
+
+```bash
+npm run storybook          # expo start with Storybook enabled
+npm run storybook:ios      # iOS simulator
+npm run storybook:android  # Android emulator
+npm run storybook:web      # web
+```
+
+## How it works
+
+- `example/.rnstorybook/` holds `main.ts` (story globs + device addons), `preview.tsx` (decorators) and `index.tsx` (the Storybook UI root).
+- Stories live in `example/stories/**/*.stories.tsx`.
+- `example/metro.config.js` wraps the config with `withNativeWind` and `withStorybook`; Storybook is only enabled when `EXPO_PUBLIC_STORYBOOK_ENABLED=true`, otherwise the Storybook modules are stubbed out of the bundle.
+- `example/App.tsx` renders `StorybookUIRoot` when the flag is on, and a small playground screen otherwise.
+
+## Regenerating the story index
+
+After adding or renaming a story file:
+
+```bash
+cd example
+npx sb-rn-get-stories -c ./.rnstorybook
+```
+
+## Writing a story
+
+```tsx
+import type { Meta, StoryObj } from "@storybook/react-native";
+import { Button } from "midestic-rn-library";
+
+const meta = {
+  title: "Components/Button",
+  component: Button,
+  args: { title: "Continue", onPress: () => {} },
+  argTypes: {
+    variant: { control: "select", options: ["primary", "secondary", "outline", "ghost"] },
+  },
+} satisfies Meta<typeof Button>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Primary: Story = {};
+export const Disabled: Story = { args: { disabled: true } };
+```
+
+:::note
+`example/tailwind.config.js` scans `example/stories/**` **and** `example/node_modules/midestic-rn-library/src/**`, so story classes are generated too.
+:::

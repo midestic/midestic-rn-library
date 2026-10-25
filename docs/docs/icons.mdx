@@ -1,0 +1,53 @@
+---
+sidebar_position: 5
+title: Icons
+---
+
+# Icons
+
+Every SVG in the design system is exported as a component from the package root. They accept the props of `react-native-svg`'s `Svg` plus a `color` shorthand.
+
+```tsx
+import { ArrowLeft, LocationIcon, StarIcon, type IconProps } from "midestic-rn-library";
+
+<ArrowLeft color="#121212" width={26} height={26} onPress={goBack} />
+<LocationIcon color="#DE4B65" />
+<StarIcon color="#FB9506" width={32} height={32} />
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `color` | `string` | per icon | Fill/stroke colour |
+| `width` / `height` | `number` | per icon | Rendered size |
+| ...rest | `SvgProps` | - | `onPress`, `opacity`, `testID`, ... |
+
+## The set
+
+Navigation & arrows: `ArrowLeft`, `ArrowRightIcon`, `RightArrowIcon`, `ExpandIcon`, `MoreIcon`.
+
+Inputs & pickers: `CalendarIcon`, `FilledCalendarIcon`, `SearchIcon`, `CameraIcon`, `ImageIcon`, `EditIcon`, `PlusIcon`, `MinusIcon`.
+
+Rides & map: `LocationIcon`, `AddLocationIcon`, `MapIcon`, `CarIcon`, `FlagIcon`, `TimerIcon`, `TimeIcon`, `TimeInactiveIcon`, `RecentRideIcon`.
+
+Status & feedback: `StatusIcon`, `StatusDotIcon`, `SuccessIcon`, `VerifiedIcon`, `CheckedIcon`, `CheckIcon`, `CheckCircleIcon`, `StarIcon`, `StarRatingIcon`, `TicketIcon`.
+
+Calls & chat: `PhoneIcon`, `PhoneMsgIcon`, `PhoneOffIcon`, `MessageIcon`, `MicOffIcon`, `VolumeIcon`.
+
+Account: `ProfileIcon`, `ProfileInactiveIcon`, `ActiveHomeIcon`, `HomeInactiveIcon`, `ActiveEarningIcon`, `EarningIcon`, `AccountProfileIcon`, `NotificationIcon`, `ContactIcon`, `ReferralIcon`, `GiftIcon`, `LogoutIcon`, `TermsIcon`, `SecurityIcon`, `EmailIcon`, `SavedAddress`.
+
+Money: `CurrencyIcon`, `MoneyIcon`.
+
+Shared icons: `CopyIcon`, `SendIcon`, `ShareIcon`.
+
+:::tip
+Type `IconProps` is exported, so you can build your own wrapper:
+
+```tsx
+export function Chevron({ color = "#121212", size = 24 }: { color?: string; size?: number }) {
+  return <ArrowRightIcon color={color} width={size} height={size} />;
+}
+```
+
+:::
