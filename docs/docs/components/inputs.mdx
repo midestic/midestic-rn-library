@@ -11,6 +11,10 @@ All text inputs extend `TextInputProps`, so `value`, `onChangeText`, `editable`,
 
 Single line field with optional label, icons and error message.
 
+```bash
+npx midestic-rn-library add input
+```
+
 ```tsx
 <Input label="Email" placeholder="you@example.com" value={email} onChangeText={setEmail} />
 <Input label="Email" error="Enter a valid email address" value={bad} onChangeText={setBad} />
@@ -28,6 +32,10 @@ Single line field with optional label, icons and error message.
 ## NumberInput
 
 Numeric field with variant/size styling.
+
+```bash
+npx midestic-rn-library add number-input
+```
 
 ```tsx
 <NumberInput label="Age" placeholder="18" keyboardType="number-pad" />
@@ -47,6 +55,10 @@ Numeric field with variant/size styling.
 
 Multi line field.
 
+```bash
+npx midestic-rn-library add textarea
+```
+
 ```tsx
 <Textarea placeholder="Tell us something..." numberOfLines={4} containerClassName="h-[140px]" />
 ```
@@ -60,6 +72,10 @@ Multi line field.
 
 Search field with leading/trailing icons (a magnifier by default).
 
+```bash
+npx midestic-rn-library add search-input
+```
+
 ```tsx
 <SearchInput placeholder="Search trips" />
 ```
@@ -67,6 +83,10 @@ Search field with leading/trailing icons (a magnifier by default).
 ## PhoneInput
 
 Phone field with a country flag and code prefix.
+
+```bash
+npx midestic-rn-library add phone-input
+```
 
 ```tsx
 <PhoneInput label="Phone number" countryCode="+234" placeholder="8012345678" />
@@ -82,6 +102,10 @@ Phone field with a country flag and code prefix.
 ## SelectInput
 
 Controlled dropdown.
+
+```bash
+npx midestic-rn-library add select-input
+```
 
 ```tsx
 const [city, setCity] = useState<string | undefined>();
@@ -107,6 +131,13 @@ const [city, setCity] = useState<string | undefined>();
 ## OTPInput / OTPInputSquare
 
 Digit boxes for one time codes. Both are controlled by `value`/`onChangeText`, and every box exposes `accessibilityLabel={"Digit " + index}`.
+
+Add either component individually:
+
+```bash
+npx midestic-rn-library add otp-input
+npx midestic-rn-library add otp-input-square
+```
 
 ```tsx
 const [code, setCode] = useState("");

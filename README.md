@@ -1,200 +1,66 @@
 # midestic-rn-library
 
-A React Native component library built with **NativeWind (Tailwind CSS)** - buttons, inputs, drawers, modals, calendars and 60+ SVG icons, all themed through the same `className` API.
+My personal collection of React Native components, styled with NativeWind. Use the CLI to copy only the components you want into your app, then edit and maintain those source files yourself.
 
-- **25 components** (`Button`, `Input`, `OTPInput`, `Drawer`, `DraggableDrawer`, `Modal`, `Calendar`, `SelectInput`, ...)
-- **60+ icons** exported as plain components (`ArrowLeft`, `LocationIcon`, `StarIcon`, ...)
-- **Design tokens** shipped as a Tailwind preset (`primary`, `warning`, `title`, `text`, `background`, ...)
-- **TypeScript first** - every component and prop type is exported
-- **Storybook** - every component has stories in [`example/`](./example)
-- **Docs site** - Docusaurus docs in [`docs/`](./docs)
+> This is an independent personal component library. It complements React Native's built-in components; it is not a replacement for them.
 
-## Installation
+## Add components
+
+From your React Native app, list available components and add only the ones you want:
 
 ```bash
-npm install midestic-rn-library
+npx midestic-rn-library list
+npx midestic-rn-library init
+npx midestic-rn-library add button
+npx midestic-rn-library add input themed-view
 ```
 
-The library ships its TypeScript source (plus generated `.d.ts` files), so your app's Babel/Metro setup compiles it the same way it compiles your own screens. That is what makes NativeWind `className` support work inside the package.
+The CLI copies the selected component files and their local helpers into your app's `src/` directory. It does not add this library as a runtime dependency. Existing files are left untouched; use `--overwrite` only when you want to replace them.
 
-### Peer dependencies
+Use `--src-dir app` to copy components into `app/` instead of `src/`. The CLI reports any additional package dependencies needed by your selected components.
 
-```bash
-npm install nativewind tailwindcss react-native-svg react-native-safe-area-context react-native-gesture-handler react-native-reanimated
-```
+## Requirements
 
-## NativeWind setup
+The components use React Native and NativeWind v4. Configure NativeWind in your app's Babel, Metro, Tailwind, and global CSS setup. The `init` command copies the design-token preset and prints the Tailwind configuration to add. See the [installation guide](./docs/docs/installation.mdx) for full instructions.
 
-**1. Babel**
+Some components require additional native packages, such as `react-native-svg`, `react-native-safe-area-context`, `react-native-gesture-handler`, or `react-native-reanimated`. The CLI lists dependencies for the components you add; in Expo apps, install native packages with `npx expo install`.
 
-```js
-// babel.config.js
-module.exports = function (api) {
-  api.cache(true);
-  return {
-    presets: [["babel-preset-expo", { jsxImportSource: "nativewind" }], "nativewind/babel"],
-  };
-};
-```
+## Available components
 
-**2. Tailwind**
+`app-image`, `app-switch`, `button`, `calendar`, `celebration-shower`, `checkbox`, `draggable-drawer`, `drawer`, `header-back`, `icons`, `input`, `modal`, `my-text`, `number-input`, `otp-input`, `otp-input-square`, `phone-input`, `safe-top-view`, `search-input`, `select-input`, `status-switch`, `textarea`, `themed-scrollview`, `themed-text`, `themed-title`, `themed-view`.
 
-```js
-// tailwind.config.js
-module.exports = {
-  presets: [require("nativewind/preset"), require("midestic-rn-library/tailwind-preset")],
-  content: [
-    "./App.tsx",
-    "./src/**/*.{js,jsx,ts,tsx}",
-    // required: scan the library's className strings
-    "./node_modules/midestic-rn-library/src/**/*.{js,jsx,ts,tsx}",
-  ],
-  theme: { extend: {} },
-  plugins: [],
-};
-```
+The `icons` entry adds the current icon set as one source file.
 
-**3. Metro**
+## Examples and documentation
 
-Wrap your Expo Metro config with NativeWind so `className` styles in the library are transformed:
+- Run the interactive component stories with `npm run storybook`.
+- Start the docs site with `npm run docs:start`.
+- Build the docs site with `npm run docs:build`.
 
-```js
-// metro.config.js
-const { getDefaultConfig } = require("expo/metro-config");
-const { withNativeWind } = require("nativewind/metro");
-
-const config = getDefaultConfig(__dirname);
-module.exports = withNativeWind(config, { input: "./global.css" });
-```
-
-**4. Global CSS**
-
-```js
-// index.js / index.ts
-import "./global.css";
-```
-
-## Usage
-
-```tsx
-import { Button, Input, ThemedView, type ButtonProps } from "midestic-rn-library";
-
-export function SignIn() {
-  const [email, setEmail] = useState("");
-
-  return (
-    <ThemedView safe className="justify-center gap-[16px] px-[24px]">
-      <Input label="Email" value={email} onChangeText={setEmail} placeholder="you@example.com" />
-
-      <Button title="Continue" fullWidth size="md" disabled={!email} onPress={() => {}} />
-    </ThemedView>
-  );
-}
-```
-
-Every component accepts `className`, so you can restyle anything without wrapper `View`s:
-
-```tsx
-<Button title="Ghost" variant="ghost" className="rounded-[24px] bg-white" />
-```
-
-## Components
-
-| Category | Components                                                                                                   |
-| -------- | ------------------------------------------------------------------------------------------------------------ |
-| Actions  | `Button`                                                                                                     |
-| Inputs   | `Input`, `NumberInput`, `Textarea`, `SearchInput`, `PhoneInput`, `SelectInput`, `OTPInput`, `OTPInputSquare` |
-| Toggles  | `AppSwitch`, `AppCheckbox`, `StatusSwitch`                                                                   |
-| Overlays | `Modal`, `Drawer`, `DraggableDrawer`, `CelebrationShower`, `Calendar`                                        |
-| Layout   | `ThemedView`, `ThemedText`, `ThemedTitle`, `ThemedScrollView`, `SafeTopView`, `HeaderBack`                   |
-| Media    | `AppImage`                                                                                                   |
-| Icons    | 60+ SVG icons (`ArrowLeft`, `CalendarIcon`, `LocationIcon`, `StarIcon`, ...)                                 |
-| Utils    | `cn`, `useAppRefresh`, `Colors`                                                                              |
-
-Full prop tables live in the docs site (`npm run docs:start`).
-
-## Design tokens
-
-```js
-// available as className utilities out of the box
-<ThemedTitle className="text-title-light">Title</ThemedTitle>
-<ThemedText className="text-text-light">Body</ThemedText>
-<Text className="text-warning">Something went wrong</Text>
-```
-
-| Token                                  | Value                 |
-| -------------------------------------- | --------------------- |
-| `primary`                              | `#3195C9`             |
-| `warning`                              | `#D53838`             |
-| `call`                                 | `#16A34A`             |
-| `message`                              | `#2563EB`             |
-| `success`                              | `#11A75C`             |
-| `title-light` / `title-dark`           | `#121212` / `#FFFFFF` |
-| `text-light` / `text-dark`             | `#625F72` / `#D4D4D4` |
-| `background-light` / `background-dark` | `#FFFFFF` / `#252231` |
-| `ui-light` / `ui-dark`                 | `#D6D5E1` / `#2F2B3D` |
-
-## Storybook
-
-```bash
-npm run storybook        # expo start with Storybook enabled
-npm run storybook:ios
-npm run storybook:android
-```
-
-The example app lives in [`example/`](./example) and renders the Storybook UI when `EXPO_PUBLIC_STORYBOOK_ENABLED=true`.
-
-To use the published library in another React Native Storybook app, install it and its native peer dependencies:
-
-```bash
-npm install midestic-rn-library
-npm install nativewind tailwindcss react-native-svg react-native-safe-area-context react-native-gesture-handler react-native-reanimated
-```
-
-Add a story that imports components from the package:
-
-```tsx
-import type { Meta, StoryObj } from "@storybook/react-native";
-import { Button } from "midestic-rn-library";
-
-const meta = {
-  title: "Button",
-  component: Button,
-} satisfies Meta<typeof Button>;
-
-export default meta;
-type Story = StoryObj<typeof meta>;
-
-export const Primary: Story = {
-  args: { title: "Continue" },
-};
-```
-
-Make sure the app's Storybook story glob includes that file and its Tailwind `content` includes `./node_modules/midestic-rn-library/src/**/*.{js,jsx,ts,tsx}`. See [NativeWind setup](#nativewind-setup) for the rest of the required configuration.
+The Storybook app and docs site in this repository are for browsing and developing this personal component collection.
 
 ## Development
 
 ```bash
 npm install
-npm run typecheck   # tsc --noEmit
-npm run lint        # eslint
-npm test            # jest (27 tests)
-npm run build       # emit .d.ts into dist/types
-npm pack --dry-run  # verify publish contents
+npm run typecheck
+npm run lint
+npm test
+npm run build
+npm pack --dry-run
 ```
 
-## Publishing to npm
+## Publishing the CLI
 
-The package is public (`publishConfig.access` is set to `public`). Before the first release, make sure `midestic-rn-library` is available on npm and that you are signed in with an account allowed to publish it. For each release, update the version and publish from the project root:
+After confirming the npm package name is available and you are signed in:
 
 ```bash
-npm login
-npm version patch --no-git-tag-version   # use minor or major when appropriate
-npm pack --dry-run  # review the files that will be published
+npm version patch --no-git-tag-version
+npm pack --dry-run
 npm publish
 ```
 
-`npm publish` runs the configured pre-publish checks and builds the TypeScript declarations before uploading. Do not publish a version that already exists on npm.
+Publishing runs the package checks and builds TypeScript declarations. Users can then run the CLI with `npx midestic-rn-library`.
 
 ## License
 

@@ -9,6 +9,10 @@ title: Toggles
 
 Native switch that exposes the correct accessibility role and state.
 
+```bash
+npx midestic-rn-library add app-switch
+```
+
 ```tsx
 const [on, setOn] = useState(true);
 
@@ -29,6 +33,10 @@ const [on, setOn] = useState(true);
 
 Custom checkbox with `checkbox` role, checked state and an accessibility label.
 
+```bash
+npx midestic-rn-library add checkbox
+```
+
 ```tsx
 <AppCheckbox value={accepted} onValueChange={setAccepted} accessibilityLabel="Accept terms" />
 ```
@@ -44,6 +52,10 @@ Custom checkbox with `checkbox` role, checked state and an accessibility label.
 ## StatusSwitch
 
 Online/offline driver toggle with labels on both sides of the knob.
+
+```bash
+npx midestic-rn-library add status-switch
+```
 
 ```tsx
 <StatusSwitch value={online} onValueChange={setOnline} onlineLabel="You are online" offlineLabel="You are offline" />

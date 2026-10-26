@@ -9,8 +9,12 @@ title: Actions
 
 Pill button with variant driven by [`class-variance-authority`](https://cva.style). Extends `PressableProps`.
 
+```bash
+npx midestic-rn-library add button
+```
+
 ```tsx
-import { Button } from "midestic-rn-library";
+import { Button } from "./src/components/ui/button";
 
 <Button title="Continue" variant="primary" size="md" fullWidth onPress={() => {}} />
 <Button title="Cancel" variant="cancel" size="cancel" onPress={close} />
@@ -20,17 +24,17 @@ import { Button } from "midestic-rn-library";
 
 ### Props
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| `title` | `string` | - | Label rendered inside the button |
-| `variant` | `primary` \| `secondary` \| `outline` \| `ghost` \| `cancel` \| `wait` \| `call` \| `msg` \| `danger` | `primary` | Colour scheme |
-| `size` | `sm` \| `md` \| `lg` \| `primary` \| `cancel` \| `wait` \| `call` \| `msg` \| `danger` | `md` | Height and label size |
-| `fullWidth` | `boolean` | `false` | Stretch to the container width |
-| `loading` | `boolean` | `false` | Show a spinner and ignore presses |
-| `disabled` | `boolean` | `false` | Disabled state (from `PressableProps`) |
-| `leftIcon` / `rightIcon` | `ReactNode` | - | Icons next to the label |
-| `className` | `string` | `""` | Extra classes on the container |
-| `textClassName` | `string` | `""` | Extra classes on the label |
+| Prop                     | Type                                                                                                  | Default   | Description                            |
+| ------------------------ | ----------------------------------------------------------------------------------------------------- | --------- | -------------------------------------- |
+| `title`                  | `string`                                                                                              | -         | Label rendered inside the button       |
+| `variant`                | `primary` \| `secondary` \| `outline` \| `ghost` \| `cancel` \| `wait` \| `call` \| `msg` \| `danger` | `primary` | Colour scheme                          |
+| `size`                   | `sm` \| `md` \| `lg` \| `primary` \| `cancel` \| `wait` \| `call` \| `msg` \| `danger`                | `md`      | Height and label size                  |
+| `fullWidth`              | `boolean`                                                                                             | `false`   | Stretch to the container width         |
+| `loading`                | `boolean`                                                                                             | `false`   | Show a spinner and ignore presses      |
+| `disabled`               | `boolean`                                                                                             | `false`   | Disabled state (from `PressableProps`) |
+| `leftIcon` / `rightIcon` | `ReactNode`                                                                                           | -         | Icons next to the label                |
+| `className`              | `string`                                                                                              | `""`      | Extra classes on the container         |
+| `textClassName`          | `string`                                                                                              | `""`      | Extra classes on the label             |
 
 :::note
 `variant` and `size` are paired: `call`/`msg`/`cancel`/`danger` sizes set the height used by the ride-app flows.

@@ -92,6 +92,14 @@
   line-height: 1.75;
 }
 
+.personalNote {
+  max-width: 490px;
+  margin: 0.65rem 0 0;
+  color: #767d7e;
+  font-size: 0.77rem;
+  line-height: 1.6;
+}
+
 .heroActions {
   display: flex;
   align-items: center;

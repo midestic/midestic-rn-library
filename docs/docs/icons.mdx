@@ -5,10 +5,16 @@ title: Icons
 
 # Icons
 
-Every SVG in the design system is exported as a component from the package root. They accept the props of `react-native-svg`'s `Svg` plus a `color` shorthand.
+The icons are available together as one source file. Add the icon set and its dependency to your app:
+
+```bash
+npx midestic-rn-library add icons
+```
+
+The CLI copies the icon source into `src/icons/` and reports that `react-native-svg` is required. The icons accept the props of `react-native-svg`'s `Svg` plus a `color` shorthand.
 
 ```tsx
-import { ArrowLeft, LocationIcon, StarIcon, type IconProps } from "midestic-rn-library";
+import { ArrowLeft, LocationIcon, StarIcon, type IconProps } from "./src/icons";
 
 <ArrowLeft color="#121212" width={26} height={26} onPress={goBack} />
 <LocationIcon color="#DE4B65" />
@@ -17,11 +23,11 @@ import { ArrowLeft, LocationIcon, StarIcon, type IconProps } from "midestic-rn-l
 
 ## Props
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| `color` | `string` | per icon | Fill/stroke colour |
-| `width` / `height` | `number` | per icon | Rendered size |
-| ...rest | `SvgProps` | - | `onPress`, `opacity`, `testID`, ... |
+| Prop               | Type       | Default  | Description                         |
+| ------------------ | ---------- | -------- | ----------------------------------- |
+| `color`            | `string`   | per icon | Fill/stroke colour                  |
+| `width` / `height` | `number`   | per icon | Rendered size                       |
+| ...rest            | `SvgProps` | -        | `onPress`, `opacity`, `testID`, ... |
 
 ## The set
 

@@ -1,7 +1,7 @@
 {
   "name": "midestic-rn-library",
   "version": "0.1.0",
-  "description": "Customisable React Native component library built with NativeWind (Tailwind CSS) - buttons, inputs, drawers, modals, pickers and 60+ SVG icons.",
+  "description": "CLI for adding individual, editable NativeWind React Native components to your app.",
   "keywords": [
     "react-native",
     "components",
@@ -10,6 +10,8 @@
     "tailwind",
     "storybook",
     "library",
+    "cli",
+    "shadcn",
     "icons",
     "svg"
   ],
@@ -17,6 +19,9 @@
   "main": "./src/index.ts",
   "source": "./src/index.ts",
   "react-native": "./src/index.ts",
+  "bin": {
+    "midestic-rn-library": "./bin/cli.cjs"
+  },
   "types": "./dist/types/index.d.ts",
   "exports": {
     ".": {
@@ -28,6 +33,7 @@
     "./package.json": "./package.json"
   },
   "files": [
+    "bin",
     "src",
     "dist",
     "tailwind",
@@ -39,7 +45,7 @@
   "scripts": {
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "build": "tsc -p tsconfig.build.json",
-    "test": "jest",
+    "test": "jest && node --test test/cli.test.cjs",
     "lint": "eslint .",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
@@ -48,7 +54,7 @@
     "docs:start": "npm run start --prefix docs",
     "docs:build": "npm run build --prefix docs",
     "prepack": "npm run typecheck && npm run build",
-    "prepublishOnly": "npm run typecheck && npm run test && npm run build"
+    "prepublishOnly": "npm run typecheck && npm test && npm run build"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",

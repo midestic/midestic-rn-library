@@ -6,38 +6,30 @@ title: Overview
 
 # midestic-rn-library
 
-A React Native component library built with **NativeWind (Tailwind CSS)**. It ships buttons, inputs, drawers, modals, pickers and 60+ SVG icons that are all themed through the same `className` API.
+A personal React Native component library built with **NativeWind (Tailwind CSS)**. Add only the components you choose; this library complements React Native's built-in components, it is not a replacement for them.
 
 ## What you get
 
 - **25 components** - `Button`, `Input`, `OTPInput`, `SelectInput`, `Drawer`, `DraggableDrawer`, `Modal`, `Calendar`, ...
 - **60+ icons** - every SVG from the design system exported as a component
 - **Design tokens** - `primary`, `warning`, `title`, `text`, `background`, ... available as Tailwind utilities
-- **TypeScript first** - every component and prop type is exported from the package root
+- **TypeScript first** - copied components keep their TypeScript prop definitions
 - **Storybook** - an Expo example app with interactive component stories
-- **Tree-shakeable source entry** - your app compiles the library source, so NativeWind classes work out of the box
+- **Copy only what you need** - the CLI adds selected components and their helper files as editable source in your app
 
 ## Quick example
 
 ```tsx
-import { useState } from "react";
-import { Button, Input, ThemedView } from "midestic-rn-library";
+import { Button } from "./src/components/ui/button";
 
-export function SignIn() {
-  const [email, setEmail] = useState("");
-
-  return (
-    <ThemedView safe className="justify-center gap-[16px] px-[24px]">
-      <Input label="Email" value={email} onChangeText={setEmail} placeholder="you@example.com" />
-      <Button title="Continue" fullWidth size="md" disabled={!email} onPress={() => {}} />
-    </ThemedView>
-  );
+export function Welcome() {
+  return <Button title="Get started" onPress={() => {}} />;
 }
 ```
 
 ## Where to go next
 
-- [Installation](./installation.mdx) - install the package and wire up NativeWind
+- [Installation](./installation.mdx) - add selected components and configure NativeWind
 - [Theming](./theming.mdx) - design tokens, `className` overrides, dark mode
 - [Components](./components/actions.mdx) - prop reference for every component
 - [Icons](./icons.mdx) - the full icon set

@@ -9,20 +9,32 @@ title: Layout
 
 `View` with `className` support and an optional safe-area wrapper.
 
+```bash
+npx midestic-rn-library add themed-view
+```
+
 ```tsx
 <ThemedView safe className="flex-1 justify-center px-[24px]">
   {children}
 </ThemedView>
 ```
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| `safe` | `boolean` | `false` | Apply safe-area padding (top + bottom) |
-| `className` | `string` | `""` | Extra classes |
+| Prop        | Type      | Default | Description                            |
+| ----------- | --------- | ------- | -------------------------------------- |
+| `safe`      | `boolean` | `false` | Apply safe-area padding (top + bottom) |
+| `className` | `string`  | `""`    | Extra classes                          |
 
 ## ThemedText / ThemedTitle / MyText
 
 Text primitives that read the theme colours.
+
+Add the text primitive you need:
+
+```bash
+npx midestic-rn-library add themed-text
+npx midestic-rn-library add themed-title
+npx midestic-rn-library add my-text
+```
 
 ```tsx
 <ThemedTitle>Page title</ThemedTitle>
@@ -30,15 +42,19 @@ Text primitives that read the theme colours.
 <MyText className="font-[600]">Emphasised label</MyText>
 ```
 
-| Component | Extends | Extra props |
-| --- | --- | --- |
-| `ThemedText` | `TextProps` | `className` |
-| `ThemedTitle` | `TextProps` | `className` |
-| `MyText` | `TextProps` | `className`, required `children` |
+| Component     | Extends     | Extra props                      |
+| ------------- | ----------- | -------------------------------- |
+| `ThemedText`  | `TextProps` | `className`                      |
+| `ThemedTitle` | `TextProps` | `className`                      |
+| `MyText`      | `TextProps` | `className`, required `children` |
 
 ## ThemedScrollView
 
 Scroll container with optional safe areas and pull to refresh.
+
+```bash
+npx midestic-rn-library add themed-scrollview
+```
 
 ```tsx
 <ThemedScrollView
@@ -54,30 +70,21 @@ Scroll container with optional safe areas and pull to refresh.
 </ThemedScrollView>
 ```
 
-| Prop | Type | Description |
-| --- | --- | --- |
-| `safe` / `safeTop` / `safeBottom` | `boolean` | Safe-area padding on the container |
-| `refreshing` | `boolean` | Controlled pull-to-refresh spinner |
-| `onRefresh` | `() => Promise<unknown> \| void` | Called on pull to refresh |
-| `className` | `string` | Classes on the scroll view |
-| `contentContainerClassName` | `string` | Classes on the content container |
-
-:::tip
-`useAppRefresh` (exported from the package) returns `{ isRefreshing, refresh }` so you can wire pull-to-refresh in one line:
-
-```tsx
-const { isRefreshing, refresh } = useAppRefresh(() => api.reload());
-
-<ThemedScrollView refreshing={isRefreshing} onRefresh={refresh}>
-  {rows}
-</ThemedScrollView>
-```
-
-:::
+| Prop                              | Type                             | Description                        |
+| --------------------------------- | -------------------------------- | ---------------------------------- |
+| `safe` / `safeTop` / `safeBottom` | `boolean`                        | Safe-area padding on the container |
+| `refreshing`                      | `boolean`                        | Controlled pull-to-refresh spinner |
+| `onRefresh`                       | `() => Promise<unknown> \| void` | Called on pull to refresh          |
+| `className`                       | `string`                         | Classes on the scroll view         |
+| `contentContainerClassName`       | `string`                         | Classes on the content container   |
 
 ## SafeTopView
 
 `View` padded by the top safe-area inset.
+
+```bash
+npx midestic-rn-library add safe-top-view
+```
 
 ```tsx
 <SafeTopView className="flex-1 bg-background-light">
@@ -89,12 +96,16 @@ const { isRefreshing, refresh } = useAppRefresh(() => api.reload());
 
 Top bar with a back arrow and centered title.
 
+```bash
+npx midestic-rn-library add header-back
+```
+
 ```tsx
 <HeaderBack title="Trip details" onBackPress={() => navigation.goBack()} className="h-[56px]" />
 ```
 
-| Prop | Type | Description |
-| --- | --- | --- |
-| `title` | `string` | Centered header text |
+| Prop          | Type         | Description                      |
+| ------------- | ------------ | -------------------------------- |
+| `title`       | `string`     | Centered header text             |
 | `onBackPress` | `() => void` | Called when the arrow is pressed |
-| `className` | `string` | Extra classes |
+| `className`   | `string`     | Extra classes                    |

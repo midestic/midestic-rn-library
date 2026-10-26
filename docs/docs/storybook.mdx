@@ -34,7 +34,7 @@ npx sb-rn-get-stories -c ./.rnstorybook
 
 ```tsx
 import type { Meta, StoryObj } from "@storybook/react-native";
-import { Button } from "midestic-rn-library";
+import { Button } from "../../src/components/ui/button";
 
 const meta = {
   title: "Components/Button",
@@ -53,5 +53,5 @@ export const Disabled: Story = { args: { disabled: true } };
 ```
 
 :::note
-`example/tailwind.config.js` scans `example/stories/**` **and** `example/node_modules/midestic-rn-library/src/**`, so story classes are generated too.
+The repository's example app imports the package while developing the library itself. For your app, add components with the CLI; Tailwind scans their copied source under `src/`.
 :::

@@ -3,43 +3,77 @@ sidebar_position: 2
 title: Installation
 ---
 
-# Installation
+# Add only the components you need
 
-The library requires a React Native app using Expo or Metro and NativeWind v4 for its `className` styles.
+Components are copied into your app as editable source code. No component is added until you choose it, and you do not need to install this package as a runtime dependency.
 
-## Install the packages
+## Check the component list
 
-```bash
-npm install midestic-rn-library
-```
-
-## Peer dependencies
+Run the CLI in your React Native app:
 
 ```bash
-npm install nativewind tailwindcss react-native-svg react-native-safe-area-context \
-  react-native-gesture-handler react-native-reanimated
+npx midestic-rn-library list
 ```
 
-| Package                          | Required for                                         |
-| -------------------------------- | ---------------------------------------------------- |
-| `nativewind` + `tailwindcss`     | every component's `className`                        |
-| `react-native-svg`               | the icon set                                         |
-| `react-native-safe-area-context` | `SafeTopView`, `HeaderBack`, drawer/sheet safe areas |
-| `react-native-gesture-handler`   | `DraggableDrawer`                                    |
-| `react-native-reanimated`        | `DraggableDrawer` animations                         |
-
-For Expo apps, use Expo's installer to select native dependencies compatible with your SDK:
+## Initialize the design tokens
 
 ```bash
-npx expo install nativewind tailwindcss react-native-svg react-native-safe-area-context \
-  react-native-gesture-handler react-native-reanimated
+npx midestic-rn-library init
 ```
 
-## Why the package ships TypeScript source
+This creates `midestic-rn-library.preset.js` in your project. Add it to your Tailwind config and make sure Tailwind scans your app's source:
 
-NativeWind v4 only converts `className` props when **your app's Babel config** compiles the file (it sets `jsxImportSource: "nativewind"`). The library therefore exposes its source as the package entry point and only ships generated `.d.ts` files in `dist/types`. Metro compiles `node_modules/midestic-rn-library/src` exactly like your own screens, so classes work without any extra NativeWind config.
+```js
+// tailwind.config.js
+module.exports = {
+  presets: [require("./midestic-rn-library.preset")],
+  content: ["./App.{js,jsx,ts,tsx}", "./src/**/*.{js,jsx,ts,tsx}"],
+  theme: { extend: {} },
+  plugins: [],
+};
+```
 
-## Babel
+If your app uses a different source directory, tell the `add` command with `--src-dir` and use the same path in Tailwind's `content` globs.
+
+## Add a component
+
+```bash
+npx midestic-rn-library add button
+```
+
+The CLI copies the button and its local helper files into `src/`. Add more components by name:
+
+```bash
+npx midestic-rn-library add input themed-view
+```
+
+Files keep their original folder structure, so import directly from your app:
+
+```tsx
+import { Button } from "./src/components/ui/button";
+```
+
+The CLI reports any external packages the selected components need. Install those dependencies before using the components. For example, the button uses `class-variance-authority`, `clsx`, and `tailwind-merge`.
+
+Use `--src-dir app` to copy into a different source directory. Existing files are never overwritten unless you explicitly pass `--overwrite`.
+
+## Configure NativeWind
+
+The components use NativeWind v4 `className` styles. Install and configure NativeWind in your app:
+
+```bash
+npm install nativewind tailwindcss
+```
+
+The CLI reports native packages required by the components you selected. For Expo apps, install only those packages with SDK-compatible versions. For example, `draggable-drawer` requires gesture handler and Reanimated:
+
+```bash
+npx expo install react-native-gesture-handler react-native-reanimated
+```
+
+The `icons` set requires `react-native-svg`; safe-area components require `react-native-safe-area-context`.
+
+### Babel
 
 ```js
 // babel.config.js
@@ -51,30 +85,7 @@ module.exports = function (api) {
 };
 ```
 
-## Tailwind
-
-```js
-// tailwind.config.js
-module.exports = {
-  presets: [require("nativewind/preset"), require("midestic-rn-library/tailwind-preset")],
-  content: [
-    "./App.tsx",
-    "./src/**/*.{js,jsx,ts,tsx}",
-    // required - the library's classes must be scanned
-    "./node_modules/midestic-rn-library/src/**/*.{js,jsx,ts,tsx}",
-  ],
-  theme: { extend: {} },
-  plugins: [],
-};
-```
-
-:::tip
-If you skip the `content` glob for `node_modules/midestic-rn-library/src`, every class inside the library is dropped from the generated stylesheet and components render unstyled.
-:::
-
-## Metro
-
-Wrap the Expo Metro config with NativeWind and point it at the global stylesheet:
+### Metro
 
 ```js
 // metro.config.js
@@ -85,12 +96,7 @@ const config = getDefaultConfig(__dirname);
 module.exports = withNativeWind(config, { input: "./global.css" });
 ```
 
-## Global CSS
-
-```ts
-// index.ts
-import "./global.css";
-```
+### Global CSS
 
 ```css
 /* global.css */
@@ -99,7 +105,13 @@ import "./global.css";
 @tailwind utilities;
 ```
 
-For gesture-driven components such as `DraggableDrawer`, wrap the application root in `GestureHandlerRootView`:
+Import the stylesheet from your app entry point:
+
+```ts
+import "./global.css";
+```
+
+Gesture-driven components such as `draggable-drawer` also need a gesture root:
 
 ```tsx
 import { GestureHandlerRootView } from "react-native-gesture-handler";
@@ -109,14 +121,12 @@ export default function App() {
 }
 ```
 
-## Verify the install
+## Check the result
 
 ```tsx
-import { Button } from "midestic-rn-library";
+import { Button } from "./src/components/ui/button";
 
-export default function Demo() {
+export function Example() {
   return <Button title="It works" onPress={() => {}} />;
 }
 ```
-
-The button renders pill shaped with the `primary` background colour. If it is a grey rectangle, the Tailwind `content` glob above is missing.

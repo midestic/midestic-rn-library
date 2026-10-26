@@ -9,6 +9,10 @@ title: Overlays
 
 Centered dialog.
 
+```bash
+npx midestic-rn-library add modal
+```
+
 ```tsx
 <Modal visible={visible} onClose={() => setVisible(false)} title="Delete account">
   <View className="gap-[16px]">
@@ -33,6 +37,10 @@ Centered dialog.
 
 Bottom sheet version of `Modal` with the same prop set.
 
+```bash
+npx midestic-rn-library add drawer
+```
+
 ```tsx
 <Drawer visible={visible} onClose={() => setVisible(false)} title="Filters">
   <View className="gap-[8px] px-[16px] pb-[24px]">
@@ -44,6 +52,10 @@ Bottom sheet version of `Modal` with the same prop set.
 ## DraggableDrawer
 
 Multi step, gesture driven bottom sheet. Steps are React components that receive step helpers.
+
+```bash
+npx midestic-rn-library add draggable-drawer
+```
 
 ```tsx
 const StepOne = ({ nextStep, onClose }: DrawerStepProps) => (
@@ -89,6 +101,10 @@ Every step receives `currentStep`, `nextStep()`, `previousStep()`, `goToStep(ind
 
 Date picker dialog.
 
+```bash
+npx midestic-rn-library add calendar
+```
+
 ```tsx
 <Calendar
   visible={visible}
@@ -111,6 +127,10 @@ Date picker dialog.
 ## CelebrationShower
 
 Animated confetti overlay for success screens.
+
+```bash
+npx midestic-rn-library add celebration-shower
+```
 
 ```tsx
 <View className="flex-1 items-center justify-center">

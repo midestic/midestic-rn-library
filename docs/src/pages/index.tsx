@@ -41,14 +41,14 @@ function CodePreview() {
           <i />
           <i />
         </span>
-        <span className={styles.fileName}>WelcomeScreen.tsx</span>
+        <span className={styles.fileName}>App.tsx</span>
         <span className={styles.language}>TSX</span>
       </div>
       <div className={styles.previewBody}>
         <div className={styles.codeLine}>
           <span className={styles.lineNumber}>1</span>
           <code>
-            <span className={styles.syntaxPurple}>import</span> {"{"} Button, ThemedText {"}"}
+            <span className={styles.syntaxPurple}>import</span> {"{"} Button {"}"}
           </code>
         </div>
         <div className={styles.codeLine}>
@@ -56,7 +56,7 @@ function CodePreview() {
           <code>
             {"  "}
             <span className={styles.syntaxPurple}>from</span>{" "}
-            <span className={styles.syntaxGreen}>&quot;midestic-rn-library&quot;</span>;
+            <span className={styles.syntaxGreen}>&quot;./src/components/ui/button&quot;</span>;
           </code>
         </div>
         <div className={styles.codeLine}>
@@ -122,7 +122,7 @@ function HomeHero() {
       <div className={styles.heroGrid}>
         <div className={styles.heroCopy}>
           <div className={styles.eyebrow}>
-            <span className={styles.eyebrowDot} />A React Native component library
+            <span className={styles.eyebrowDot} />A personal React Native component library
           </div>
           <Heading as="h1" className={styles.heroTitle}>
             Thoughtful UI.
@@ -130,8 +130,11 @@ function HomeHero() {
             <span>Native by nature.</span>
           </Heading>
           <p className={styles.heroDescription}>
-            A considered collection of React Native components, designed to help you build polished apps
-            without starting from scratch.
+            My personal collection of React Native components. Add only what you want, then make the source
+            your own.
+          </p>
+          <p className={styles.personalNote}>
+            Not a replacement for React Native&apos;s built-in components. Just my own optional additions.
           </p>
           <div className={styles.heroActions}>
             <Link className={styles.primaryButton} to="/docs/installation">
@@ -142,7 +145,7 @@ function HomeHero() {
             </Link>
           </div>
           <div className={styles.installHint}>
-            <span className={styles.installPrompt}>$</span> npm install midestic-rn-library
+            <span className={styles.installPrompt}>$</span> npx midestic-rn-library add button
           </div>
         </div>
         <CodePreview />
@@ -195,8 +198,7 @@ function QuickStart() {
         <span className={styles.sectionEyebrow}>UP AND RUNNING</span>
         <Heading as="h2">From install to interface.</Heading>
         <p>
-          Set up the package and NativeWind in a few small steps. Then build with components that feel at home
-          in your app.
+          Copy only the components you choose into your app, where you can edit and maintain them yourself.
         </p>
         <Link to="/docs/installation" className={styles.featureLink}>
           Follow the installation guide <span aria-hidden="true">→</span>
@@ -206,10 +208,10 @@ function QuickStart() {
         <div className={styles.commandHeader}>
           <span className={styles.commandIndicator} />
           <span>Terminal</span>
-          <span className={styles.commandLanguage}>npm</span>
+          <span className={styles.commandLanguage}>npx</span>
         </div>
         <code>
-          <span className={styles.syntaxMuted}>$</span> npm install midestic-rn-library
+          <span className={styles.syntaxMuted}>$</span> npx midestic-rn-library add button
         </code>
       </div>
     </section>
@@ -220,7 +222,7 @@ export default function Home(): ReactNode {
   return (
     <Layout
       title="React Native component library"
-      description="A considered collection of React Native components, designed to help you build polished apps without starting from scratch."
+      description="A personal React Native component library. Add only the components you choose; this project complements, not replaces, React Native's built-in components."
     >
       <main className={styles.home}>
         <HomeHero />
