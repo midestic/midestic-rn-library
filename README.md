@@ -55,12 +55,20 @@ npm pack --dry-run
 After confirming the npm package name is available and you are signed in:
 
 ```bash
-npm version patch --no-git-tag-version
 npm pack --dry-run
-npm publish
+npm publish --access public
 ```
 
 Publishing runs the package checks and builds TypeScript declarations. Users can then run the CLI with `npx midestic-rn-library`.
+
+npm requires two-factor authentication or a granular access token with publishing access to publish packages. If prompted for a one-time password, enter it only in your local terminal.
+
+For later releases, increment the version before publishing:
+
+```bash
+npm version patch --no-git-tag-version
+npm publish --access public
+```
 
 ## License
 

@@ -20,7 +20,7 @@
   "source": "./src/index.ts",
   "react-native": "./src/index.ts",
   "bin": {
-    "midestic-rn-library": "./bin/cli.cjs"
+    "midestic-rn-library": "bin/cli.cjs"
   },
   "types": "./dist/types/index.d.ts",
   "exports": {
