@@ -290,6 +290,11 @@ function addComponents(args, cwd) {
       `\nNative dependencies required: ${nativeDependencies.join(", ")}\nFor Expo, install SDK-compatible versions with:\n  npx expo install ${nativeDependencies.join(" ")}`,
     );
   }
+  if (packages.has("react-native-reanimated")) {
+    print(
+      "\nIf using Reanimated 4, also install its Worklets peer with:\n  npx expo install react-native-worklets",
+    );
+  }
   print(
     "\nAll components use NativeWind className styles. See the installation guide to configure NativeWind.",
   );

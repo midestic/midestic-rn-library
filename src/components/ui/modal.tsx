@@ -32,7 +32,11 @@ export const Modal = ({
         <View className={`w-full rounded-[20px] bg-white ${className}`}>
           {(title || showCloseButton) && (
             <View className="flex-row items-center justify-between px-[16px]  ">
-              {title ? <Text className="font-sans text-[20px] font-[600] text-title-light">{title}</Text> : <View />}
+              {title ? (
+                <Text className="font-sans text-[20px] font-[600] text-title-light">{title}</Text>
+              ) : (
+                <View />
+              )}
 
               {showCloseButton && (
                 <Pressable

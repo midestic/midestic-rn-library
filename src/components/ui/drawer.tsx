@@ -27,13 +27,18 @@ export const Drawer = ({
   return (
     <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
       <View className="flex-1 justify-end">
-        <Pressable className="absolute inset-0 bg-black/40" onPress={closeOnBackdropPress ? onClose : undefined} />
+        <Pressable
+          className="absolute inset-0 bg-black/40"
+          onPress={closeOnBackdropPress ? onClose : undefined}
+        />
 
         <View className={`w-full rounded-t-[24px] bg-white ${className}`}>
           {(title || showCloseButton) && (
             <View className="ml-auto w-[80%] flex-row items-center justify-between  px-[20px] pt-[20px]">
               {title ? (
-                <Text className="text-center  font-sans text-[20px] font-[500] text-title-light">{title}</Text>
+                <Text className="text-center  font-sans text-[20px] font-[500] text-title-light">
+                  {title}
+                </Text>
               ) : (
                 <View />
               )}

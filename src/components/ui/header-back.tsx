@@ -30,5 +30,3 @@ export const HeaderBack = ({ title, onBackPress, className = "" }: HeaderProps) 
     </View>
   );
 };
-
-

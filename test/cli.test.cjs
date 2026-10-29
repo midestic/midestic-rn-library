@@ -101,6 +101,7 @@ test("add draggable-drawer copies its files and reports gesture dependencies", (
     assert.equal(fs.existsSync(path.join(directory, "src/components/ui/draggable-drawer.tsx")), true);
     assert.match(result.stdout, /react-native-gesture-handler/);
     assert.match(result.stdout, /react-native-reanimated/);
+    assert.match(result.stdout, /npx expo install react-native-worklets/);
   });
 });
 

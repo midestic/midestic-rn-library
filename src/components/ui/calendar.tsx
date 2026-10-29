@@ -386,7 +386,11 @@ export const Calendar = ({ visible, value, onClose, onApply }: CalendarProps) =>
                 <Text className="font-sans text-[20px] font-[700] text-[#121212]">Select Year</Text>
                 <View className="w-[32px]" />
               </View>
-              <ScrollView className="mt-[8px] max-h-[80vh]" showsVerticalScrollIndicator={true} nestedScrollEnabled>
+              <ScrollView
+                className="mt-[8px] max-h-[80vh]"
+                showsVerticalScrollIndicator={true}
+                nestedScrollEnabled
+              >
                 <View className="flex-row flex-wrap">
                   {YEARS.map((year) => {
                     const selected = year === currentMonth.getFullYear();
@@ -417,17 +421,25 @@ export const Calendar = ({ visible, value, onClose, onApply }: CalendarProps) =>
                   {MONTHS[currentMonth.getMonth()]}
                 </Text>
                 <View className="flex-row items-center gap-[8px]">
-                  <Text className="font-sans text-[20px] font-[700] text-[#121212]">{currentMonth.getFullYear()}</Text>
+                  <Text className="font-sans text-[20px] font-[700] text-[#121212]">
+                    {currentMonth.getFullYear()}
+                  </Text>
                   <Pressable
                     onPress={() => setShowYearGrid(true)}
                     className="h-[32px] w-[32px] items-center justify-center"
                   >
                     <Text className="text-[20px] text-[#666666]">▼</Text>
                   </Pressable>
-                  <Pressable onPress={goToPreviousMonth} className="h-[32px] w-[32px] items-center justify-center">
+                  <Pressable
+                    onPress={goToPreviousMonth}
+                    className="h-[32px] w-[32px] items-center justify-center"
+                  >
                     <Text className="text-[28px] text-[#121212]">‹</Text>
                   </Pressable>
-                  <Pressable onPress={goToNextMonth} className="h-[32px] w-[32px] items-center justify-center">
+                  <Pressable
+                    onPress={goToNextMonth}
+                    className="h-[32px] w-[32px] items-center justify-center"
+                  >
                     <Text className="text-[28px] text-[#121212]">›</Text>
                   </Pressable>
                 </View>
@@ -443,7 +455,10 @@ export const Calendar = ({ visible, value, onClose, onApply }: CalendarProps) =>
                 {days.map((item, index) => {
                   const selected = selectedDate && isSameDate(item.date, selectedDate);
                   return (
-                    <View key={`${item.date.toISOString()}-${index}`} className="mb-[4px] w-[14.285%] items-center">
+                    <View
+                      key={`${item.date.toISOString()}-${index}`}
+                      className="mb-[4px] w-[14.285%] items-center"
+                    >
                       <Pressable
                         onPress={() => setSelectedDate(item.date)}
                         className={`h-[36px] w-[36px] items-center justify-center rounded-full ${
@@ -452,7 +467,11 @@ export const Calendar = ({ visible, value, onClose, onApply }: CalendarProps) =>
                       >
                         <Text
                           className={`font-sans text-[13px] ${
-                            selected ? "font-[600] text-white" : item.currentMonth ? "text-[#343A40]" : "text-[#B8B8B8]"
+                            selected
+                              ? "font-[600] text-white"
+                              : item.currentMonth
+                                ? "text-[#343A40]"
+                                : "text-[#B8B8B8]"
                           }`}
                         >
                           {item.day}
@@ -484,4 +503,3 @@ export const Calendar = ({ visible, value, onClose, onApply }: CalendarProps) =>
     </Modal>
   );
 };
-

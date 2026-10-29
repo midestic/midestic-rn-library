@@ -30,9 +30,19 @@ export const Contain: Story = {
 export const Sizes: Story = {
   render: () => (
     <View className="flex-row gap-[12px]">
-      <AppImage source={{ uri: "https://picsum.photos/200/200" }} className="h-[64px] w-[64px] rounded-[32px]" />
-      <AppImage source={{ uri: "https://picsum.photos/200/300" }} className="h-[64px] w-[64px] rounded-[12px]" />
-      <AppImage source={{ uri: "https://picsum.photos/300/200" }} className="h-[64px] w-[64px]" contentFit="fill" />
+      <AppImage
+        source={{ uri: "https://picsum.photos/200/200" }}
+        className="h-[64px] w-[64px] rounded-[32px]"
+      />
+      <AppImage
+        source={{ uri: "https://picsum.photos/200/300" }}
+        className="h-[64px] w-[64px] rounded-[12px]"
+      />
+      <AppImage
+        source={{ uri: "https://picsum.photos/300/200" }}
+        className="h-[64px] w-[64px]"
+        contentFit="fill"
+      />
     </View>
   ),
 };

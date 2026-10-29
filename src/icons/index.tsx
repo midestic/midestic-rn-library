@@ -171,7 +171,13 @@ export const HomeInactiveIcon = ({ color = "#BDBDBD", width = 26, height = 26 }:
         strokeLinejoin="round"
       />
 
-      <Path d="M13 18.3084V16.1417" stroke={color} strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" />
+      <Path
+        d="M13 18.3084V16.1417"
+        stroke={color}
+        strokeWidth={1.5}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </Svg>
   );
 };
@@ -258,7 +264,15 @@ export const FlagIcon = ({ width = 23, height = 16, ...props }: SvgProps) => {
         stroke="#F5F5F5"
         strokeWidth="0.357143"
       />
-      <Mask id="mask0_flag" maskType="luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="23" height="16">
+      <Mask
+        id="mask0_flag"
+        maskType="luminance"
+        maskUnits="userSpaceOnUse"
+        x="0"
+        y="0"
+        width="23"
+        height="16"
+      >
         <Rect
           x="0.178571"
           y="0.178571"
@@ -499,8 +513,20 @@ export const MicOffIcon = ({ color = "#121212", width = 32, height = 32, ...prop
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <Path d="M10.667 28H21.3337" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
-      <Path d="M16 22.6667V28.0001" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
+      <Path
+        d="M10.667 28H21.3337"
+        stroke={color}
+        strokeWidth={2}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <Path
+        d="M16 22.6667V28.0001"
+        stroke={color}
+        strokeWidth={2}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </Svg>
   );
 };
@@ -515,7 +541,13 @@ export const PhoneOffIcon = ({ color = "#FFFFFF", width = 24, height = 24, ...pr
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <Path d="M16 4L20 8M20 4L16 8" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
+      <Path
+        d="M16 4L20 8M20 4L16 8"
+        stroke={color}
+        strokeWidth={2}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </Svg>
   );
 };
@@ -546,7 +578,13 @@ export const PhoneMsgIcon = ({ color = "#6B7280", width = 24, height = 24, ...pr
 export const PlusIcon = ({ color = "#484C52", width = 24, height = 24, ...props }: IconProps) => {
   return (
     <Svg width={width} height={height} viewBox="0 0 24 24" fill="none" {...props}>
-      <Path d="M6 12H18M12 18L12 6" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
+      <Path
+        d="M6 12H18M12 18L12 6"
+        stroke={color}
+        strokeWidth={2}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </Svg>
   );
 };
@@ -773,23 +811,9 @@ export const CopyIcon = ({ color = "#FFFFFF", width = 20, height = 20, ...props 
   );
 };
 
-
-
-
-export const LogoutIcon = ({
-  color = "#484C52",
-  width = 15,
-  height = 15,
-  ...props
-}: IconProps) => {
+export const LogoutIcon = ({ color = "#484C52", width = 15, height = 15, ...props }: IconProps) => {
   return (
-    <Svg
-      width={width}
-      height={height}
-      viewBox="0 0 15 15"
-      fill="none"
-      {...props}
-    >
+    <Svg width={width} height={height} viewBox="0 0 15 15" fill="none" {...props}>
       <Path
         d="M8.125 1.25H3.95833C3.268 1.25 2.70833 1.80966 2.70833 2.5V12.5C2.70833 13.1903 3.268 13.75 3.95833 13.75H8.125C8.47018 13.75 8.75 13.4702 8.75 13.125C8.75 12.7798 8.47018 12.5 8.125 12.5H3.95833V2.5H8.125C8.47018 2.5 8.75 2.22018 8.75 1.875C8.75 1.52982 8.47018 1.25 8.125 1.25Z"
         fill={color}
@@ -802,20 +826,9 @@ export const LogoutIcon = ({
   );
 };
 
-export const TermsIcon = ({
-  color = "#000000",
-  width = 15,
-  height = 15,
-  ...props
-}: IconProps) => {
+export const TermsIcon = ({ color = "#000000", width = 15, height = 15, ...props }: IconProps) => {
   return (
-    <Svg
-      width={width}
-      height={height}
-      viewBox="0 0 15 15"
-      fill="none"
-      {...props}
-    >
+    <Svg width={width} height={height} viewBox="0 0 15 15" fill="none" {...props}>
       <Path
         d="M9.375 1.25H3.75C3.05964 1.25 2.5 1.80964 2.5 2.5V12.5C2.5 13.1904 3.05964 13.75 3.75 13.75H11.25C11.9404 13.75 12.5 13.1904 12.5 12.5V4.375L9.375 1.25ZM9.16667 3.0625L10.6875 4.58333H9.58333C9.35321 4.58333 9.16667 4.39679 9.16667 4.16667V3.0625ZM3.75 2.91667H7.5V4.16667C7.5 5.31726 8.43274 6.25 9.58333 6.25H10.8333V12.0833H4.16667V2.91667H3.75Z"
         fill={color}
@@ -836,21 +849,9 @@ export const TermsIcon = ({
   );
 };
 
-
-export const RightArrowIcon = ({
-  color = "#01B41F",
-  width = 16,
-  height = 16,
-  ...props
-}: IconProps) => {
+export const RightArrowIcon = ({ color = "#01B41F", width = 16, height = 16, ...props }: IconProps) => {
   return (
-    <Svg
-      width={width}
-      height={height}
-      viewBox="0 0 16 16"
-      fill="none"
-      {...props}
-    >
+    <Svg width={width} height={height} viewBox="0 0 16 16" fill="none" {...props}>
       <Path
         d="M10.9501 11.4998C10.857 11.4062 10.8047 11.2794 10.8047 11.1473C10.8047 11.0152 10.857 10.8885 10.9501 10.7948L13.2501 8.49983H1.47508C1.34248 8.49983 1.2153 8.44715 1.12153 8.35339C1.02776 8.25962 0.975084 8.13244 0.975084 7.99983C0.975084 7.86722 1.02776 7.74005 1.12153 7.64628C1.2153 7.55251 1.34248 7.49983 1.47508 7.49983H13.2351L10.9501 5.21483C10.8553 5.12068 10.8017 4.99272 10.8013 4.8591C10.8008 4.72548 10.8534 4.59715 10.9476 4.50233C11.0417 4.40752 11.1697 4.35399 11.3033 4.35352C11.4369 4.35305 11.5653 4.40568 11.6601 4.49983L14.8401 7.68483C14.9241 7.76917 14.9712 7.88333 14.9712 8.00233C14.9712 8.12134 14.9241 8.2355 14.8401 8.31983L11.6601 11.4998C11.6136 11.5467 11.5583 11.5839 11.4974 11.6093C11.4364 11.6347 11.3711 11.6477 11.3051 11.6477C11.2391 11.6477 11.1737 11.6347 11.1128 11.6093C11.0519 11.5839 10.9966 11.5467 10.9501 11.4998Z"
         fill={color}
@@ -859,21 +860,9 @@ export const RightArrowIcon = ({
   );
 };
 
-
-export const TimerIcon = ({
-  color = "#000000",
-  width = 19,
-  height = 19,
-  ...props
-}: IconProps) => {
+export const TimerIcon = ({ color = "#000000", width = 19, height = 19, ...props }: IconProps) => {
   return (
-    <Svg
-      width={width}
-      height={height}
-      viewBox="0 0 19 19"
-      fill="none"
-      {...props}
-    >
+    <Svg width={width} height={height} viewBox="0 0 19 19" fill="none" {...props}>
       <Path
         d="M9.5 0C4.2655 0 0 4.2655 0 9.5C0 14.7345 4.2655 19 9.5 19C14.7345 19 19 14.7345 19 9.5C19 4.2655 14.7345 0 9.5 0ZM13.6325 12.8915C13.4995 13.1195 13.262 13.243 13.015 13.243C12.8915 13.243 12.768 13.2145 12.654 13.1385L9.709 11.381C8.9775 10.944 8.436 9.9845 8.436 9.139V5.244C8.436 4.8545 8.759 4.5315 9.1485 4.5315C9.538 4.5315 9.861 4.8545 9.861 5.244V9.139C9.861 9.481 10.146 9.9845 10.4405 10.1555L13.3855 11.913C13.7275 12.1125 13.8415 12.5495 13.6325 12.8915Z"
         fill={color}
@@ -883,21 +872,9 @@ export const TimerIcon = ({
   );
 };
 
-
-export const MoneyIcon = ({
-  color = "#257097",
-  width = 24,
-  height = 25,
-  ...props
-}: IconProps) => {
+export const MoneyIcon = ({ color = "#257097", width = 24, height = 25, ...props }: IconProps) => {
   return (
-    <Svg
-      width={width}
-      height={height}
-      viewBox="0 0 24 25"
-      fill="none"
-      {...props}
-    >
+    <Svg width={width} height={height} viewBox="0 0 24 25" fill="none" {...props}>
       <Path
         d="M11.25 8.08008V10.9401L10.24 10.5901C9.73 10.4101 9.42 10.2401 9.42 9.37008C9.42 8.66008 9.95 8.08008 10.6 8.08008H11.25Z"
         fill={color}
@@ -914,21 +891,9 @@ export const MoneyIcon = ({
   );
 };
 
-
-export const CheckIcon = ({
-  color = "#729B00",
-  width = 24,
-  height = 24,
-  ...props
-}: IconProps) => {
+export const CheckIcon = ({ color = "#729B00", width = 24, height = 24, ...props }: IconProps) => {
   return (
-    <Svg
-      width={width}
-      height={height}
-      viewBox="0 0 24 24"
-      fill="none"
-      {...props}
-    >
+    <Svg width={width} height={height} viewBox="0 0 24 24" fill="none" {...props}>
       <Path
         d="M16.19 2H7.81C4.17 2 2 4.17 2 7.81V16.18C2 19.83 4.17 22 7.81 22H16.18C19.82 22 21.99 19.83 21.99 16.19V7.81C22 4.17 19.83 2 16.19 2ZM16.78 9.7L11.11 15.37C10.97 15.51 10.78 15.59 10.58 15.59C10.38 15.59 10.19 15.51 10.05 15.37L7.22 12.54C6.93 12.25 6.93 11.77 7.22 11.48C7.51 11.19 7.99 11.19 8.28 11.48L10.58 13.78L15.72 8.64C16.01 8.35 16.49 8.35 16.78 8.64C17.07 8.93 17.07 9.4 16.78 9.7Z"
         fill={color}
@@ -937,21 +902,9 @@ export const CheckIcon = ({
   );
 };
 
-
-export const StarRatingIcon = ({
-  color = "#FB9506",
-  width = 24,
-  height = 24,
-  ...props
-}: IconProps) => {
+export const StarRatingIcon = ({ color = "#FB9506", width = 24, height = 24, ...props }: IconProps) => {
   return (
-    <Svg
-      width={width}
-      height={height}
-      viewBox="0 0 24 24"
-      fill="none"
-      {...props}
-    >
+    <Svg width={width} height={height} viewBox="0 0 24 24" fill="none" {...props}>
       <Path
         d="M12 2C6.49 2 2 6.49 2 12C2 17.51 6.49 22 12 22C17.51 22 22 17.51 22 12C22 6.49 17.51 2 12 2ZM16.35 15.57C16.21 15.81 15.96 15.94 15.7 15.94C15.57 15.94 15.44 15.91 15.32 15.83L12.22 13.98C11.45 13.52 10.88 12.51 10.88 11.62V7.52C10.88 7.11 11.22 6.77 11.63 6.77C12.04 6.77 12.38 7.11 12.38 7.52V11.62C12.38 11.98 12.68 12.51 12.99 12.69L16.09 14.54C16.45 14.75 16.57 15.21 16.35 15.57Z"
         fill={color}
@@ -960,21 +913,9 @@ export const StarRatingIcon = ({
   );
 };
 
-
-export const MapIcon = ({
-  color = "#B3623F",
-  width = 24,
-  height = 24,
-  ...props
-}: IconProps) => {
+export const MapIcon = ({ color = "#B3623F", width = 24, height = 24, ...props }: IconProps) => {
   return (
-    <Svg
-      width={width}
-      height={height}
-      viewBox="0 0 24 24"
-      fill="none"
-      {...props}
-    >
+    <Svg width={width} height={height} viewBox="0 0 24 24" fill="none" {...props}>
       <Path
         d="M7.62999 3.56993C7.80938 3.47209 7.99999 3.62261 7.99999 3.82695V17.3828C7.99999 17.606 7.84758 17.7948 7.65019 17.8991C7.64342 17.9027 7.63669 17.9063 7.62999 17.9099L5.27999 19.2499C3.63999 20.1899 2.28999 19.4099 2.28999 17.5099V7.77993C2.28999 7.14993 2.73999 6.36993 3.29999 6.04993L7.62999 3.56993Z"
         fill={color}
@@ -991,44 +932,17 @@ export const MapIcon = ({
   );
 };
 
-export const MinusIcon = ({
-  color = "#121212",
-  width = 9,
-  height = 2,
-  ...props
-}: IconProps) => {
+export const MinusIcon = ({ color = "#121212", width = 9, height = 2, ...props }: IconProps) => {
   return (
-    <Svg
-      width={width}
-      height={height}
-      viewBox="0 0 9 2"
-      fill="none"
-      {...props}
-    >
-      <Path
-        d="M5.96046e-08 1.67993V-6.87838e-05H8.08V1.67993H5.96046e-08Z"
-        fill={color}
-      />
+    <Svg width={width} height={height} viewBox="0 0 9 2" fill="none" {...props}>
+      <Path d="M5.96046e-08 1.67993V-6.87838e-05H8.08V1.67993H5.96046e-08Z" fill={color} />
     </Svg>
   );
 };
 
-
-
-export const EarningIcon = ({
-  color = "#BDBDBD",
-  width = 24,
-  height = 24,
-  ...props
-}: IconProps) => {
+export const EarningIcon = ({ color = "#BDBDBD", width = 24, height = 24, ...props }: IconProps) => {
   return (
-    <Svg
-      width={width}
-      height={height}
-      viewBox="0 0 24 24"
-      fill="none"
-      {...props}
-    >
+    <Svg width={width} height={height} viewBox="0 0 24 24" fill="none" {...props}>
       <Path
         d="M8.67188 14.3298C8.67188 15.6198 9.66188 16.6598 10.8919 16.6598H13.4019C14.4719 16.6598 15.3419 15.7498 15.3419 14.6298C15.3419 13.4098 14.8119 12.9798 14.0219 12.6998L9.99187 11.2998C9.20187 11.0198 8.67188 10.5898 8.67188 9.36984C8.67188 8.24984 9.54187 7.33984 10.6119 7.33984H13.1219C14.3519 7.33984 15.3419 8.37984 15.3419 9.66984"
         stroke={color}
@@ -1036,13 +950,7 @@ export const EarningIcon = ({
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <Path
-        d="M12 6V18"
-        stroke={color}
-        strokeWidth={1.2}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
+      <Path d="M12 6V18" stroke={color} strokeWidth={1.2} strokeLinecap="round" strokeLinejoin="round" />
       <Path
         d="M15 22H9C4 22 2 20 2 15V9C2 4 4 2 9 2H15C20 2 22 4 22 9V15C22 20 20 22 15 22Z"
         stroke={color}
@@ -1054,20 +962,9 @@ export const EarningIcon = ({
   );
 };
 
-export const ActiveEarningIcon = ({
-  color = "#3195C9",
-  width = 24,
-  height = 25,
-  ...props
-}: IconProps) => {
+export const ActiveEarningIcon = ({ color = "#3195C9", width = 24, height = 25, ...props }: IconProps) => {
   return (
-    <Svg
-      width={width}
-      height={height}
-      viewBox="0 0 24 25"
-      fill="none"
-      {...props}
-    >
+    <Svg width={width} height={height} viewBox="0 0 24 25" fill="none" {...props}>
       <Path
         d="M11.25 8.08008V10.9401L10.24 10.5901C9.73 10.4101 9.42 10.2401 9.42 9.37008C9.42 8.66008 9.95 8.08008 10.6 8.08008H11.25Z"
         fill={color}

@@ -19,15 +19,15 @@ const [on, setOn] = useState(true);
 <View className="flex-row items-center justify-between">
   <MyText>Notifications</MyText>
   <AppSwitch value={on} onValueChange={setOn} />
-</View>
+</View>;
 ```
 
-| Prop | Type | Description |
-| --- | --- | --- |
-| `value` | `boolean` | Controlled on/off state |
-| `onValueChange` | `(value: boolean) => void` | Change handler |
-| `disabled` | `boolean` | Disables the switch |
-| `className` | `string` | Extra classes |
+| Prop            | Type                       | Description             |
+| --------------- | -------------------------- | ----------------------- |
+| `value`         | `boolean`                  | Controlled on/off state |
+| `onValueChange` | `(value: boolean) => void` | Change handler          |
+| `disabled`      | `boolean`                  | Disables the switch     |
+| `className`     | `string`                   | Extra classes           |
 
 ## AppCheckbox
 
@@ -41,13 +41,13 @@ npx midestic-rn-library add checkbox
 <AppCheckbox value={accepted} onValueChange={setAccepted} accessibilityLabel="Accept terms" />
 ```
 
-| Prop | Type | Description |
-| --- | --- | --- |
-| `value` | `boolean` | Checked state |
-| `onValueChange` | `(value: boolean) => void` | Change handler |
-| `size` | `number` | Box size (default `24`) |
-| `disabled` | `boolean` | Disables the checkbox |
-| `accessibilityLabel` | `string` | Announced by screen readers |
+| Prop                 | Type                       | Description                 |
+| -------------------- | -------------------------- | --------------------------- |
+| `value`              | `boolean`                  | Checked state               |
+| `onValueChange`      | `(value: boolean) => void` | Change handler              |
+| `size`               | `number`                   | Box size (default `24`)     |
+| `disabled`           | `boolean`                  | Disables the checkbox       |
+| `accessibilityLabel` | `string`                   | Announced by screen readers |
 
 ## StatusSwitch
 
@@ -62,10 +62,10 @@ npx midestic-rn-library add status-switch
 <StatusSwitch value={online} onValueChange={setOnline} knobImage={require("./car.png")} />
 ```
 
-| Prop | Type | Description |
-| --- | --- | --- |
-| `value` | `boolean` | `true` = online |
-| `onValueChange` | `(value: boolean) => void` | Change handler |
-| `onlineLabel` / `offlineLabel` | `string` | Text shown while in each state |
-| `knobImage` | `ImageSourcePropType` | Image inside the sliding knob (plain circle when omitted) |
-| `disabled` | `boolean` | Disables the toggle |
+| Prop                           | Type                       | Description                                               |
+| ------------------------------ | -------------------------- | --------------------------------------------------------- |
+| `value`                        | `boolean`                  | `true` = online                                           |
+| `onValueChange`                | `(value: boolean) => void` | Change handler                                            |
+| `onlineLabel` / `offlineLabel` | `string`                   | Text shown while in each state                            |
+| `knobImage`                    | `ImageSourcePropType`      | Image inside the sliding knob (plain circle when omitted) |
+| `disabled`                     | `boolean`                  | Disables the toggle                                       |

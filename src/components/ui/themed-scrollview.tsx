@@ -67,7 +67,8 @@ export const ThemedScrollView = ({
         contentContainerStyle,
       ]}
       refreshControl={
-        refreshControl ?? (onRefresh ? <RefreshControl refreshing={isRefreshing} onRefresh={handleRefresh} /> : undefined)
+        refreshControl ??
+        (onRefresh ? <RefreshControl refreshing={isRefreshing} onRefresh={handleRefresh} /> : undefined)
       }
       showsVerticalScrollIndicator={false}
       {...props}

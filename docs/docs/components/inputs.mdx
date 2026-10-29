@@ -21,13 +21,13 @@ npx midestic-rn-library add input
 <Input placeholder="Search" leftIcon={<SearchIcon />} />
 ```
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| `label` | `string` | - | Text rendered above the field |
-| `error` | `string` | - | Turns the border red and shows the message |
-| `leftIcon` / `rightIcon` | `ReactNode` | - | Icons inside the field |
-| `onLeftIconPress` / `onRightIconPress` | `() => void` | - | Make the icons pressable |
-| `className` | `string` | `""` | Extra classes on the wrapper |
+| Prop                                   | Type         | Default | Description                                |
+| -------------------------------------- | ------------ | ------- | ------------------------------------------ |
+| `label`                                | `string`     | -       | Text rendered above the field              |
+| `error`                                | `string`     | -       | Turns the border red and shows the message |
+| `leftIcon` / `rightIcon`               | `ReactNode`  | -       | Icons inside the field                     |
+| `onLeftIconPress` / `onRightIconPress` | `() => void` | -       | Make the icons pressable                   |
+| `className`                            | `string`     | `""`    | Extra classes on the wrapper               |
 
 ## NumberInput
 
@@ -42,14 +42,14 @@ npx midestic-rn-library add number-input
 <NumberInput label="Amount" error="Minimum is 500" size="sm" />
 ```
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| `label` | `string` | - | Label above the field |
-| `error` | `string` | - | Error message + `border-warning` |
-| `variant` | `default` \| `error` \| `disabled` | derived | Explicit visual state |
-| `size` | `sm` \| `md` \| `lg` | `md` | Label/input font size |
-| `fullWidth` | `boolean` | - | Stretch to container |
-| `inputClassName` | `string` | `""` | Extra classes on the `TextInput` itself |
+| Prop             | Type                               | Default | Description                             |
+| ---------------- | ---------------------------------- | ------- | --------------------------------------- |
+| `label`          | `string`                           | -       | Label above the field                   |
+| `error`          | `string`                           | -       | Error message + `border-warning`        |
+| `variant`        | `default` \| `error` \| `disabled` | derived | Explicit visual state                   |
+| `size`           | `sm` \| `md` \| `lg`               | `md`    | Label/input font size                   |
+| `fullWidth`      | `boolean`                          | -       | Stretch to container                    |
+| `inputClassName` | `string`                           | `""`    | Extra classes on the `TextInput` itself |
 
 ## Textarea
 
@@ -63,10 +63,10 @@ npx midestic-rn-library add textarea
 <Textarea placeholder="Tell us something..." numberOfLines={4} containerClassName="h-[140px]" />
 ```
 
-| Prop | Type | Description |
-| --- | --- | --- |
-| `className` | `string` | Extra classes on the `TextInput` |
-| `containerClassName` | `string` | Extra classes on the wrapper |
+| Prop                 | Type     | Description                      |
+| -------------------- | -------- | -------------------------------- |
+| `className`          | `string` | Extra classes on the `TextInput` |
+| `containerClassName` | `string` | Extra classes on the wrapper     |
 
 ## SearchInput
 
@@ -93,11 +93,11 @@ npx midestic-rn-library add phone-input
 <PhoneInput flag={<CustomFlag />} ... />
 ```
 
-| Prop | Type | Description |
-| --- | --- | --- |
-| `flag` | `ImageSourcePropType` \| `ReactNode` | Replaces the default flag |
-| `countryCode` | `string` | Text shown before the field |
-| `label` | `string` | Label above the field |
+| Prop          | Type                                 | Description                 |
+| ------------- | ------------------------------------ | --------------------------- |
+| `flag`        | `ImageSourcePropType` \| `ReactNode` | Replaces the default flag   |
+| `countryCode` | `string`                             | Text shown before the field |
+| `label`       | `string`                             | Label above the field       |
 
 ## SelectInput
 
@@ -119,14 +119,14 @@ const [city, setCity] = useState<string | undefined>();
     { label: "Lagos", value: "lagos" },
     { label: "Abuja", value: "abuja" },
   ]}
-/>
+/>;
 ```
 
-| Prop | Type | Description |
-| --- | --- | --- |
-| `options` | `SelectOption[]` (`{ label, value }`) | Items shown in the sheet |
-| `value` / `onValueChange` | `string` / `(value: string) => void` | Controlled value |
-| `label` / `placeholder` | `string` | Label and placeholder |
+| Prop                      | Type                                  | Description              |
+| ------------------------- | ------------------------------------- | ------------------------ |
+| `options`                 | `SelectOption[]` (`{ label, value }`) | Items shown in the sheet |
+| `value` / `onValueChange` | `string` / `(value: string) => void`  | Controlled value         |
+| `label` / `placeholder`   | `string`                              | Label and placeholder    |
 
 ## OTPInput / OTPInputSquare
 
@@ -146,9 +146,9 @@ const [code, setCode] = useState("");
 <OTPInputSquare length={4} value={code} onChangeText={setCode} />
 ```
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| `length` | `number` | `4` | Number of boxes |
-| `value` | `string` | - | Controlled value |
-| `onChangeText` | `(value: string) => void` | - | Fires with the whole code |
-| `className` | `string` | - | Extra classes on the row |
+| Prop           | Type                      | Default | Description               |
+| -------------- | ------------------------- | ------- | ------------------------- |
+| `length`       | `number`                  | `4`     | Number of boxes           |
+| `value`        | `string`                  | -       | Controlled value          |
+| `onChangeText` | `(value: string) => void` | -       | Fires with the whole code |
+| `className`    | `string`                  | -       | Extra classes on the row  |

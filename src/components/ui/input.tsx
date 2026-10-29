@@ -31,7 +31,10 @@ export const Input = ({
         }`}
       >
         {leftIcon && (
-          <Pressable onPress={onLeftIconPress} className="ml-[16px] h-[24px] w-[24px] items-center justify-center">
+          <Pressable
+            onPress={onLeftIconPress}
+            className="ml-[16px] h-[24px] w-[24px] items-center justify-center"
+          >
             {leftIcon}
           </Pressable>
         )}
@@ -43,7 +46,10 @@ export const Input = ({
         />
 
         {rightIcon && (
-          <Pressable onPress={onRightIconPress} className="mr-[16px] h-[24px] w-[24px] items-center justify-center">
+          <Pressable
+            onPress={onRightIconPress}
+            className="mr-[16px] h-[24px] w-[24px] items-center justify-center"
+          >
             {rightIcon}
           </Pressable>
         )}

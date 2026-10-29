@@ -153,7 +153,10 @@ export const DefaultSizes: Story = {
   render: () => (
     <View className="w-[460px] flex-row flex-wrap gap-[16px]">
       {icons.map(([label, Icon]) => (
-        <View key={label} className="w-[104px] items-center gap-[8px] rounded-[12px] border border-[#E7EAEB] bg-white py-[14px]">
+        <View
+          key={label}
+          className="w-[104px] items-center gap-[8px] rounded-[12px] border border-[#E7EAEB] bg-white py-[14px]"
+        >
           <Icon />
           <ThemedText className="text-[11px] text-[#808080]">{label}</ThemedText>
         </View>

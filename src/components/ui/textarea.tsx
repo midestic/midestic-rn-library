@@ -14,7 +14,9 @@ export const Textarea = ({
   ...props
 }: TextareaProps) => {
   return (
-    <View className={`min-h-[160px] rounded-[12px] border border-[#E6E7EA] bg-white p-[14px] ${containerClassName}`}>
+    <View
+      className={`min-h-[160px] rounded-[12px] border border-[#E6E7EA] bg-white p-[14px] ${containerClassName}`}
+    >
       <TextInput
         {...props}
         multiline={multiline}

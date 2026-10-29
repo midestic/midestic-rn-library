@@ -22,16 +22,16 @@ npx midestic-rn-library add modal
 </Modal>
 ```
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| `visible` | `boolean` | - | Show/hide |
-| `onClose` | `() => void` | - | Backdrop press, close button and Android back |
-| `children` | `ReactNode` | - | Dialog body |
-| `title` | `string` | - | Header text |
-| `showCloseButton` | `boolean` | `true` | Renders the header close button |
-| `closeOnBackdropPress` | `boolean` | `true` | Dismiss on backdrop press |
-| `className` | `string` | `""` | Classes on the sheet |
-| `contentClassName` | `string` | `""` | Classes on the content row |
+| Prop                   | Type         | Default | Description                                   |
+| ---------------------- | ------------ | ------- | --------------------------------------------- |
+| `visible`              | `boolean`    | -       | Show/hide                                     |
+| `onClose`              | `() => void` | -       | Backdrop press, close button and Android back |
+| `children`             | `ReactNode`  | -       | Dialog body                                   |
+| `title`                | `string`     | -       | Header text                                   |
+| `showCloseButton`      | `boolean`    | `true`  | Renders the header close button               |
+| `closeOnBackdropPress` | `boolean`    | `true`  | Dismiss on backdrop press                     |
+| `className`            | `string`     | `""`    | Classes on the sheet                          |
+| `contentClassName`     | `string`     | `""`    | Classes on the content row                    |
 
 ## Drawer
 
@@ -72,24 +72,24 @@ const StepOne = ({ nextStep, onClose }: DrawerStepProps) => (
   title="Cancel trip"
   steps={[StepOne, StepTwo]}
   initialMaxHeight="70%"
-/>
+/>;
 ```
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| `visible` | `boolean` | - | Show/hide |
-| `onClose` | `() => void` | - | Backdrop/close button handler |
-| `steps` | `ComponentType<DrawerStepProps>[]` | - | One component per step |
-| `title` | `string` | - | Header text |
-| `showCloseButton` | `boolean` | `true` | Header close button |
-| `closeOnBackdropPress` | `boolean` | `true` | Tap outside to close |
-| `peekHeight` | `ResponsiveHeight` | `91` | Height when collapsed |
-| `minHeight` / `maxHeight` | `ResponsiveHeight` | - / `100%` | Bounds for the drag |
-| `initialMaxHeight` | `ResponsiveHeight` | `62%` | Opening height |
-| `initialStep` / `step` | `number` | `0` | Step on open / controlled step |
-| `onStepChange` | `(step: number) => void` | - | Step change callback |
-| `stepProps` | `Record<string, any>` | `{}` | Extra props passed to every step |
-| `overlayContent` | `ReactNode` \| `(props: DrawerStepProps) => ReactNode` | - | Content behind the sheet |
+| Prop                      | Type                                                   | Default    | Description                      |
+| ------------------------- | ------------------------------------------------------ | ---------- | -------------------------------- |
+| `visible`                 | `boolean`                                              | -          | Show/hide                        |
+| `onClose`                 | `() => void`                                           | -          | Backdrop/close button handler    |
+| `steps`                   | `ComponentType<DrawerStepProps>[]`                     | -          | One component per step           |
+| `title`                   | `string`                                               | -          | Header text                      |
+| `showCloseButton`         | `boolean`                                              | `true`     | Header close button              |
+| `closeOnBackdropPress`    | `boolean`                                              | `true`     | Tap outside to close             |
+| `peekHeight`              | `ResponsiveHeight`                                     | `91`       | Height when collapsed            |
+| `minHeight` / `maxHeight` | `ResponsiveHeight`                                     | - / `100%` | Bounds for the drag              |
+| `initialMaxHeight`        | `ResponsiveHeight`                                     | `62%`      | Opening height                   |
+| `initialStep` / `step`    | `number`                                               | `0`        | Step on open / controlled step   |
+| `onStepChange`            | `(step: number) => void`                               | -          | Step change callback             |
+| `stepProps`               | `Record<string, any>`                                  | `{}`       | Extra props passed to every step |
+| `overlayContent`          | `ReactNode` \| `(props: DrawerStepProps) => ReactNode` | -          | Content behind the sheet         |
 
 `ResponsiveHeight` is `number` | `` `${number}%` `` | `` `${number}vh` ``.
 
@@ -117,11 +117,11 @@ npx midestic-rn-library add calendar
 />
 ```
 
-| Prop | Type | Description |
-| --- | --- | --- |
-| `visible` | `boolean` | Show/hide |
-| `value` | `Date \| null` | Selected day |
-| `onClose` | `() => void` | Cancel handler |
+| Prop      | Type                           | Description     |
+| --------- | ------------------------------ | --------------- |
+| `visible` | `boolean`                      | Show/hide       |
+| `value`   | `Date \| null`                 | Selected day    |
+| `onClose` | `() => void`                   | Cancel handler  |
 | `onApply` | `(date: Date \| null) => void` | Confirm handler |
 
 ## CelebrationShower
@@ -139,7 +139,7 @@ npx midestic-rn-library add celebration-shower
 </View>
 ```
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| `count` | `number` | `35` | Number of particles |
-| `duration` | `number` | `2500` | Animation length in ms |
+| Prop       | Type     | Default | Description            |
+| ---------- | -------- | ------- | ---------------------- |
+| `count`    | `number` | `35`    | Number of particles    |
+| `duration` | `number` | `2500`  | Animation length in ms |

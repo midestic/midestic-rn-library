@@ -56,7 +56,11 @@ configWithStorybook.resolver.resolveRequest = (context, moduleName, platform) =>
       ? previousResolveRequest(nextContext, moduleName, platform)
       : context.resolveRequest(nextContext, moduleName, platform);
 
-  if (moduleName.startsWith(".") || path.isAbsolute(moduleName) || !sharedPackages.has(packageNameOf(moduleName))) {
+  if (
+    moduleName.startsWith(".") ||
+    path.isAbsolute(moduleName) ||
+    !sharedPackages.has(packageNameOf(moduleName))
+  ) {
     return forward(context);
   }
 

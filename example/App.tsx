@@ -26,8 +26,8 @@ function Playground() {
 
       <ThemedTitle className="text-center">midestic-rn-library</ThemedTitle>
       <ThemedText className="text-center">
-        A tiny playground app. Run <ThemedText className="font-[600]">npm run storybook</ThemedText> to browse every
-        component.
+        A tiny playground app. Run <ThemedText className="font-[600]">npm run storybook</ThemedText> to browse
+        every component.
       </ThemedText>
 
       <Input label="Email" placeholder="you@example.com" />
