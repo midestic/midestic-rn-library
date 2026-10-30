@@ -145,7 +145,7 @@ function HomeHero() {
             </Link>
           </div>
           <div className={styles.installHint}>
-            <span className={styles.installPrompt}>$</span> npx midestic-rn-library add button
+            <span className={styles.installPrompt}>$</span> npm i midestic-rn-library
           </div>
         </div>
         <CodePreview />
@@ -208,9 +208,11 @@ function QuickStart() {
         <div className={styles.commandHeader}>
           <span className={styles.commandIndicator} />
           <span>Terminal</span>
-          <span className={styles.commandLanguage}>npx</span>
+          <span className={styles.commandLanguage}>npm</span>
         </div>
         <code>
+          <span className={styles.syntaxMuted}>$</span> npm i midestic-rn-library
+          <br />
           <span className={styles.syntaxMuted}>$</span> npx midestic-rn-library add button
         </code>
       </div>
