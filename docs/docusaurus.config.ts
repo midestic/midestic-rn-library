@@ -14,7 +14,7 @@ const config: Config = {
     v4: true, // Improve compatibility with the upcoming Docusaurus v4
   },
 
-  url: process.env.URL ?? "http://localhost:3000",
+  url: process.env.URL ?? "https://midestic-rn-library.netlify.app",
   baseUrl: "/",
 
   onBrokenLinks: "throw",
