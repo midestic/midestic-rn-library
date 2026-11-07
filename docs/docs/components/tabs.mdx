@@ -1,0 +1,50 @@
+---
+sidebar_position: 5
+title: Tabs
+---
+
+# Tabs
+
+Composable tabs for React Native, with controlled or uncontrolled selection and NativeWind classes.
+
+```bash
+npx midestic-rn-library add tabs
+```
+
+```tsx
+import { useState } from "react";
+import { Text } from "react-native";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+
+function TabsExample() {
+  const [tab, setTab] = useState("account");
+
+  return (
+    <Tabs value={tab} onValueChange={setTab}>
+      <TabsList>
+        <TabsTrigger value="account">
+          <Text>Account</Text>
+        </TabsTrigger>
+        <TabsTrigger value="password">
+          <Text>Password</Text>
+        </TabsTrigger>
+      </TabsList>
+      <TabsContent value="account">
+        <Text>Manage your account settings.</Text>
+      </TabsContent>
+      <TabsContent value="password">
+        <Text>Change your password here.</Text>
+      </TabsContent>
+    </Tabs>
+  );
+}
+```
+
+Use `defaultValue` instead of `value` for uncontrolled selection. `TabsContent` only renders when its `value` matches the selected tab. All four components accept `className` for styling; the list and active trigger include basic default styles.
+
+| Component     | Purpose                                                                        |
+| ------------- | ------------------------------------------------------------------------------ |
+| `Tabs`        | Provides selection state; accepts `value`, `defaultValue`, and `onValueChange` |
+| `TabsList`    | Groups the triggers in a horizontal tab list                                   |
+| `TabsTrigger` | Selects its required `value`; supports `disabled`                              |
+| `TabsContent` | Renders its children while its required `value` is selected                    |

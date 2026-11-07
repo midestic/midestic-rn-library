@@ -29,6 +29,18 @@ test("list prints available component names", () => {
   assert.match(result.stdout, /button/);
   assert.match(result.stdout, /draggable-drawer/);
   assert.match(result.stdout, /icons/);
+  assert.match(result.stdout, /tabs/);
+});
+
+test("add copies the tabs component and its local utility", () => {
+  withTempDirectory((directory) => {
+    const result = runCli(["add", "tabs"], directory);
+
+    assert.equal(result.status, 0, result.stderr);
+    assert.equal(fs.existsSync(path.join(directory, "src/components/ui/tabs.tsx")), true);
+    assert.equal(fs.existsSync(path.join(directory, "src/lib/utils.ts")), true);
+    assert.match(result.stdout, /npm install clsx tailwind-merge/);
+  });
 });
 
 test("add copies only the requested component and its local dependencies", () => {

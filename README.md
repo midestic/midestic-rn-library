@@ -27,7 +27,7 @@ Some components require additional native packages, such as `react-native-svg`, 
 
 ## Available components
 
-`app-image`, `app-switch`, `button`, `calendar`, `celebration-shower`, `checkbox`, `draggable-drawer`, `drawer`, `header-back`, `icons`, `input`, `modal`, `my-text`, `number-input`, `otp-input`, `otp-input-square`, `phone-input`, `safe-top-view`, `search-input`, `select-input`, `status-switch`, `textarea`, `themed-scrollview`, `themed-text`, `themed-title`, `themed-view`.
+`app-image`, `app-switch`, `button`, `calendar`, `celebration-shower`, `checkbox`, `draggable-drawer`, `drawer`, `header-back`, `icons`, `input`, `modal`, `my-text`, `number-input`, `otp-input`, `otp-input-square`, `phone-input`, `safe-top-view`, `search-input`, `select-input`, `status-switch`, `tabs`, `textarea`, `themed-scrollview`, `themed-text`, `themed-title`, `themed-view`.
 
 The `icons` entry adds the current icon set as one source file.
 

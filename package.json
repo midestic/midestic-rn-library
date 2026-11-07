@@ -1,6 +1,6 @@
 {
   "name": "midestic-rn-library",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "CLI for adding individual, editable NativeWind React Native components to your app.",
   "keywords": [
     "react-native",

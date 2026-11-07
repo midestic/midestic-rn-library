@@ -33,5 +33,15 @@ export { ThemedScrollView, type ThemedScrollViewProps } from "./components/ui/th
 export { ThemedText, type ThemedTextProps } from "./components/ui/themed-text";
 export { ThemedTitle, type ThemedTitleProps } from "./components/ui/themed-title";
 export { ThemedView, type ThemedViewProps } from "./components/ui/themed-view";
+export {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+  type TabsProps,
+  type TabsListProps,
+  type TabsTriggerProps,
+  type TabsContentProps,
+} from "./components/ui/tabs";
 
 export * from "./icons";
